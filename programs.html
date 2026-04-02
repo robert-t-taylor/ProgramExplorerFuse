@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Program Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="program-finder">
+        <header class="program-finder__header container">
+            <h1>University Program Explorer</h1>
+            
+            <div class="program-finder__filters">
+                <div class="filter-group">
+                    <select id="filter-levelsOfStudy" class="filter-select">
+                        <option value="">All Levels of Study</option>
+                    </select>
+                    <select id="filter-locations" class="filter-select">
+                        <option value="">All Locations</option>
+                    </select>
+                    <select id="filter-interests" class="filter-select">
+                        <option value="">All Interests</option>
+                    </select>
+                    <select id="filter-programFeatures" class="filter-select">
+                        <option value="">All Program Features</option>
+                    </select>
+
+                    <button id="reset-filters" class="btn-reset">Reset</button>
+                </div>
+
+                <div class="search-container">
+                    <input type="text" id="program-search" placeholder="Search by keyword(s)..." aria-label="Search programs">
+                    <p id="results-count" class="results-count">Loading programs...</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="program-finder__results">
+            <div class="container">
+                <section class="program-cards">
+                    <div id="loading-spinner" class="spinner" aria-live="polite"></div>
+                    
+                    <div class="program-cards__wrapper program-cards--col-4">
+                        </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
