@@ -140,9 +140,13 @@ function renderPrograms(data, isSearching) {
     }
 
     grid.innerHTML = data.map(p => {
-        // Normalize location for CSS class (e.g., "St. John" -> "stjohn")
-        const primaryLoc = p.locations[0] || "General";
-        const locClass = primaryLoc.toLowerCase().replace(/[^a-z0-9]/g, '');
+        // Get the raw location name
+        const primaryLoc = p.locations[0] || "Fredericton";
+
+        // If it's "saint-john", use "stjohn", otherwise proceed with standard normalization
+        const locClass = (primaryLoc === "saint-john") 
+            ? "stjohn" 
+            : primaryLoc.toLowerCase().replace(/[^a-z0-9]/g, '');
         
         const tagsHTML = (p.programFeatures || [])
             .map(tag => `<span class="program-cards__item__tag">${tag}</span>`)
