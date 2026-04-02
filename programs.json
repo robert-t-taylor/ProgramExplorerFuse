@@ -4,6 +4,7 @@
   "id":"4944b1320a0000eb6ec1493e4009791c",
   "name":"test-program-5",
   "title":"Environmental Engineering",
+  "link": "/academics/programs/undergraduate/test-program-5",
   "disciplines":["philosophy"],
   "credentials":["bsceng"],
   "admissionRequirements":["arts"],
@@ -15,6 +16,7 @@
   "id":"dd5f7afb0a0000eb61725508f0469810",
   "name":"test-program-4",
   "title":"Applied Physics",
+  "link": "/academics/programs/undergraduate/test-program-4",
   "disciplines":["philosophy"],
   "credentials":["bsc"],
   "admissionRequirements":["arts"],
@@ -26,6 +28,7 @@
   "id":"ba699c180a0000eb617255084d0702cd",
   "name":"test-program-3",
   "title":"Biology-Chemistry",
+  "link": "/academics/programs/undergraduate/test-program-3",
   "disciplines":["philosophy"],
   "credentials":["bphil"],
   "admissionRequirements":["arts"],
@@ -37,6 +40,7 @@
   "id":"90f730c20a0000eb61725508daf3821c",
   "name":"test-program-2",
   "title":"Graduate Program Test",
+  "link": "/academics/programs/graduate/test-program-2",
   "disciplines":["philosophy"],
   "credentials":["ba"],
   "admissionRequirements":["leadership"],
@@ -48,6 +52,7 @@
   "id":"8c1db2260a0000eb4016c35ff63ac8a2",
   "name":"test-program",
   "title":"Chemical Engineering",
+  "link": "/academics/programs/undergraduate/test-program",
   "disciplines":["leadership-studies"],
   "credentials":["bsc"],
   "admissionRequirements":[],
@@ -55,5 +60,4 @@
   "locations":["fredericton"],
   "interests":["business-leadership"],
   "programFeatures":["co-op","internship"]
-  }
-]
+  }]
