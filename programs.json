@@ -36,7 +36,7 @@
   },      {
   "id":"90f730c20a0000eb61725508daf3821c",
   "name":"test-program-2",
-  "title":"Test Program 2",
+  "title":"Graduate Program Test",
   "disciplines":["philosophy"],
   "credentials":["ba"],
   "admissionRequirements":["leadership"],
@@ -55,4 +55,5 @@
   "locations":["fredericton"],
   "interests":["business-leadership"],
   "programFeatures":["co-op","internship"]
-  }]
+  }
+]
