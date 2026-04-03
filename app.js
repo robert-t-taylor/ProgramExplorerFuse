@@ -17,6 +17,8 @@ const fuseOptions = {
     ]
 };
 
+// global state
+let activeInterests = [];
 let allPrograms = [];
 
 // DOM Elements
@@ -36,18 +38,43 @@ async function init() {
         
         allPrograms = await response.json();
         
-        // 1. Setup UI
         populateDropdowns(allPrograms);
         
-        // 2. Initial Render (Sorted Alphabetically)
+        // 1. Set dropdown states from URL first
+        checkURLParameters(); 
+        
+        // 2. Then run one single filter/render pass
         applyFilters();
         
-        // 3. Bind Events
         bindEvents();
         
     } catch (error) {
         console.error("Initialization Error:", error);
         if (grid) grid.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+    }
+}
+
+/**
+* Check for parameters from the Interest Quiz row type 
+*/
+function checkURLParameters() {
+    const params = new URLSearchParams(window.location.search);
+    const interestsParam = params.get('interests');
+
+    if (interestsParam) {
+        // Decode all interests into the global array
+        activeInterests = interestsParam.split(',').map(decodeURIComponent);
+        
+        const interestDropdown = document.getElementById('filter-interests');
+        if (interestDropdown) {
+            // ONLY set the dropdown if there's exactly one interest.
+            // If there are multiple, leave it at "" (All) so the array logic runs.
+            if (activeInterests.length === 1) {
+                interestDropdown.value = activeInterests[0];
+            } else {
+                interestDropdown.value = ""; 
+            }
+        }
     }
 }
 
@@ -94,15 +121,37 @@ function applyFilters() {
         filters[id] = document.getElementById(`filter-${id}`).value;
     });
 
-    // Step 1: Filter by Dropdowns (Mechanical/Exact match against arrays)
+    // console.log("Filtering with Active Interests (URL):", activeInterests);
+
     let filteredResults = allPrograms.filter(p => {
+        const selectedInterest = filters.interests;
+
+        /**
+         * Logic Flow:
+         * 1. If user manually selected a specific interest in the dropdown, match ONLY that.
+         * 2. If dropdown is "All" AND we have URL interests, match ANY in the activeInterests array.
+         * 3. If dropdown is "All" AND no URL interests, return true (show everything).
+         */
+        let matchesInterests = false;
+
+        if (selectedInterest !== "") {
+            // Manual override: User picked one from the list
+            matchesInterests = p.interests.includes(selectedInterest);
+        } else if (activeInterests.length > 0) {
+            // URL fallback: Match any of the multiple interests from the quiz
+            matchesInterests = activeInterests.some(interest => p.interests.includes(interest));
+        } else {
+            // Default: No filters active
+            matchesInterests = true;
+        }
+
         return (filters.levelsOfStudy === "" || p.levelsOfStudy.includes(filters.levelsOfStudy)) &&
-               (filters.locations === "" || p.locations.includes(filters.locations)) &&
-               (filters.interests === "" || p.interests.includes(filters.interests)) &&
-               (filters.programFeatures === "" || p.programFeatures.includes(filters.programFeatures));
+            (filters.locations === "" || p.locations.includes(filters.locations)) &&
+            matchesInterests &&
+            (filters.programFeatures === "" || p.programFeatures.includes(filters.programFeatures));
     });
 
-    // Step 2: Handle Search vs. Browse
+    // Handle Search vs. Browse
     if (query.length > 1) {
         // Use Fuse.js on the filtered subset for relevance-based search
         const fuse = new Fuse(filteredResults, fuseOptions);
@@ -189,26 +238,72 @@ function updateCount(num) {
  * Event Bindings
  */
 function bindEvents() {
-    // Search input with basic debounce-like feel via 'input' event
+    // 1. Search input
     searchInput.addEventListener('input', applyFilters);
 
-    // Dropdowns
+    // 2. Dropdowns (Handling specialized logic for Interests)
     dropdownIds.forEach(id => {
         const el = document.getElementById(`filter-${id}`);
-        if (el) el.addEventListener('change', applyFilters);
+        if (!el) return;
+
+        el.addEventListener('change', (e) => {
+            // Specialized logic for Interests to handle URL state handoff
+            if (id === 'interests') {
+                const newValue = e.target.value;
+
+                // Clear the "Quiz" results as the user has now taken manual control
+                activeInterests = [];
+
+                // Update the URL to stay in sync with the new manual selection
+                const params = new URLSearchParams(window.location.search);
+                if (newValue) {
+                    params.set('interests', newValue);
+                } else {
+                    params.delete('interests');
+                }
+
+                // Push to history so the 'Back' button returns to the previous state
+                const newRelativePathQuery = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+                history.pushState(null, '', newRelativePathQuery);
+            }
+
+            // Always run the filter after any dropdown change
+            applyFilters();
+        });
     });
 
-    // Reset button
+    // 3. Reset button
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
+            // Hard reset of global state
+            activeInterests = []; 
+            
+            // Clear all UI inputs
             searchInput.value = "";
             dropdownIds.forEach(id => {
                 const el = document.getElementById(`filter-${id}`);
                 if (el) el.value = "";
             });
+
+            // Re-run the filter to show the full list
             applyFilters();
+
+            // Clean the URL entirely
+            window.history.replaceState({}, document.title, window.location.pathname);
         });
     }
+
+    /**
+     * Listen for Back/Forward navigation
+     */
+    window.addEventListener('popstate', () => {
+        // 1. Re-read the URL parameters to set activeInterests
+        checkURLParameters();
+        
+        // 2. Sync the search input if you choose to store it in the URL (Optional)
+        // 3. Re-run the filter logic to update the UI
+        applyFilters();
+    });
 }
 
 // Start the app
