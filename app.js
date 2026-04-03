@@ -59,22 +59,24 @@ async function init() {
 */
 function checkURLParameters() {
     const params = new URLSearchParams(window.location.search);
-    const interestsParam = params.get('interests');
+    const interestDropdown = document.getElementById('filter-interests');
 
-    if (interestsParam) {
-        // Decode all interests into the global array
-        activeInterests = interestsParam.split(',').map(decodeURIComponent);
-        
-        const interestDropdown = document.getElementById('filter-interests');
+    // 1. Use .getAll to catch multiple "interests=" keys from the form
+    let rawParams = params.getAll('interests'); 
+
+    // 2. Safety Check: If the form sent them as one string "A,B" 
+    // instead of separate keys, we flatten and split them.
+    activeInterests = rawParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+
+    if (activeInterests.length > 0) {
         if (interestDropdown) {
-            // ONLY set the dropdown if there's exactly one interest.
-            // If there are multiple, leave it at "" (All) so the array logic runs.
-            if (activeInterests.length === 1) {
-                interestDropdown.value = activeInterests[0];
-            } else {
-                interestDropdown.value = ""; 
-            }
+            // Only show a value in the dropdown if exactly one interest is active
+            interestDropdown.value = (activeInterests.length === 1) ? activeInterests[0] : "";
         }
+    } else {
+        // Clear state if no parameters are present (important for 'Back' button)
+        activeInterests = [];
+        if (interestDropdown) interestDropdown.value = "";
     }
 }
 
