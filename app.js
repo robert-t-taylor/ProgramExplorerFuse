@@ -61,10 +61,18 @@ function checkURLParameters() {
     const params = new URLSearchParams(window.location.search);
     const interestDropdown = document.getElementById('filter-interests');
 
-    // 1. Use .getAll to catch multiple "interests=" keys from the form
+    // Get the 'q' parameter from the URL
+    const queryParam = params.get('q');
+
+    // If it exists, put it into the Program Finder's search box
+    if (queryParam && searchInput) {
+        searchInput.value = decodeURIComponent(queryParam);
+    }
+
+    // Use .getAll to catch multiple "interests=" keys from the form
     let rawParams = params.getAll('interests'); 
 
-    // 2. Safety Check: If the form sent them as one string "A,B" 
+    // Safety Check: If the form sent them as one string "A,B" 
     // instead of separate keys, we flatten and split them.
     activeInterests = rawParams.flatMap(item => item.split(',')).map(decodeURIComponent);
 
