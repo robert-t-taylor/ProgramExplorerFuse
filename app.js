@@ -18,6 +18,20 @@ const fuseOptions = {
     ]
 };
 
+/**
+ * Note: we can also weight these, if necessary, as follows:
+const fuseOptions = {
+    threshold: 0.4,
+    distance: 100,
+    keys: [
+        { name: "title", weight: 1.0 },
+        { name: "credentials", weight: 0.7 },
+        { name: "interests", weight: 0.5 },
+        { name: "admissionRequirements", weight: 0.2 } // Lower priority
+    ]
+};
+*/
+
 // global state
 let activeInterests = [];
 let allPrograms = [];
