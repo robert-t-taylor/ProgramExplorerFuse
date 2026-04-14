@@ -13,7 +13,8 @@ const fuseOptions = {
         "interests",
         "locations",
         "programFeatures",
-        "admissionRequirements"
+        "admissionRequirements",
+        "credentials"
     ]
 };
 
