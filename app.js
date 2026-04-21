@@ -104,32 +104,97 @@ function checkURLParameters() {
 }
 
 /**
+ * Helper function to fix double encoding 
+ */
+function decodeHtmlEntities(str) {
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = str;
+    return textarea.value;
+}
+
+/**
  * Data Processing & UI Setup
  */
 function populateDropdowns(data) {
     const sets = {
-        levelsOfStudy: new Set(),
-        interests: new Set(),
-        locations: new Set(),
-        programFeatures: new Set()
+        levelsOfStudy: new Map(),
+        interests: new Map(),
+        locations: new Map(),
+        programFeatures: new Map()
     };
 
     data.forEach(p => {
-        if (Array.isArray(p.levelsOfStudy)) p.levelsOfStudy.forEach(val => sets.levelsOfStudy.add(val));
-        if (Array.isArray(p.interests)) p.interests.forEach(val => sets.interests.add(val));
-        if (Array.isArray(p.locations)) p.locations.forEach(val => sets.locations.add(val));
-        if (Array.isArray(p.programFeatures)) p.programFeatures.forEach(val => sets.programFeatures.add(val));
+        if (Array.isArray(p.levelsOfStudy)) {
+            p.levelsOfStudy.forEach(item => {
+                if (typeof item === 'object' && item !== null) {
+                    sets.levelsOfStudy.set(item.value, item.label || item.value);
+                } else {
+                    sets.levelsOfStudy.set(item, item);
+                }
+            });
+        }
+
+        if (Array.isArray(p.interests)) {
+            p.interests.forEach((item, i) => {
+                const value = typeof item === 'object' && item !== null
+                    ? item.value
+                    : item;
+
+                const label = Array.isArray(p.interestsLabels) && p.interestsLabels[i]
+                    ? p.interestsLabels[i]
+                    : value;
+
+                sets.interests.set(value, label);
+            });
+        }
+
+        if (Array.isArray(p.locations)) {
+            p.locations.forEach(item => {
+                if (typeof item === 'object' && item !== null) {
+                    sets.locations.set(item.value, item.label || item.value);
+                } else {
+                    sets.locations.set(item, item);
+                }
+            });
+        }
+
+        if (Array.isArray(p.programFeatures)) {
+            p.programFeatures.forEach(item => {
+                if (typeof item === 'object' && item !== null) {
+                    sets.programFeatures.set(item.value, item.label || item.value);
+                } else {
+                    sets.programFeatures.set(item, item);
+                }
+            });
+        }
     });
+
+    function formatOptionLabel(val) {
+        return val
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
 
     Object.keys(sets).forEach(key => {
         const select = document.getElementById(`filter-${key}`);
         if (select) {
-            Array.from(sets[key]).sort().forEach(val => {
-                const opt = document.createElement('option');
-                opt.value = val;
-                opt.textContent = val;
-                select.appendChild(opt);
-            });
+            Array.from(sets[key].entries())
+                .sort((a, b) => a[1].localeCompare(b[1]))
+                .forEach(([val, label]) => {
+                    const opt = document.createElement('option');
+                    opt.value = val;
+                    
+                    // Force formatter for locations, use label for interests
+                    const displayLabel = (key === 'interests') 
+                        ? (label || formatOptionLabel(val))
+                        : formatOptionLabel(val);
+                        
+                    // Handle Co-Op one-off condition
+                    opt.textContent = decodeHtmlEntities(displayLabel).replace("Co Op", "Co-Op");
+                
+                    select.appendChild(opt);
+                });
         }
     });
 }
@@ -215,13 +280,17 @@ function renderPrograms(data, isSearching) {
 
     grid.innerHTML = data.map(p => {
         // Get the raw location name
-        const primaryLoc = p.locations[0] || "Fredericton";
+        var primaryLoc = p.locations[0] || "Fredericton";
 
-        // If it's "saint-john", use "stjohn", otherwise proceed with standard normalization
+        // If it's "saint-john", use "stjohn" (used for background color), otherwise proceed with standard normalization
         const locClass = (primaryLoc === "saint-john") 
-            ? "stjohn" 
+            ? "saint-john" 
             : primaryLoc.toLowerCase().replace(/[^a-z0-9]/g, '');
-        
+
+        // handle issue with saint-john being hyphenated
+        if (primaryLoc === "saint-john") {
+            primaryLoc = " Saint John"
+        } 
         const tagsHTML = (p.programFeatures || [])
             .map(tag => `<span class="program-cards__item__tag">${tag}</span>`)
             .join('');
@@ -244,7 +313,7 @@ function renderPrograms(data, isSearching) {
                     <svg aria-hidden="true" height="21" width="21">
                         <use href="../../../_assets/images/svg/definitions.svg#location"></use>
                     </svg>
-                    ${primaryLoc}
+                    ${primaryLoc} Campus
                 </div>
             </a>
         `;
