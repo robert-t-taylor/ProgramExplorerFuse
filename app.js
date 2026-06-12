@@ -200,55 +200,99 @@ function populateDropdowns(data) {
 }
 
 /**
+ * Helper function now that multiple selections are allowed
+ */
+function getSelectedValues(selectEl) {
+    return Array.from(selectEl.selectedOptions)
+        .map(opt => opt.value)
+        .filter(val => val !== "");
+}
+
+/**
  * Filtering & Searching Logic
  */
 function applyFilters() {
+    console.log('applyFilters called');
+    console.log('searchInput.value:', searchInput.value);
+
     const query = searchInput.value.trim();
-    
-    // Get current values of all dropdowns
+
+    // Get current values of all dropdowns (all multi-select)
     const filters = {};
     dropdownIds.forEach(id => {
-        filters[id] = document.getElementById(`filter-${id}`).value;
+        const selectEl = document.getElementById(`filter-${id}`);
+        filters[id] = getSelectedValues(selectEl); // always an array
     });
 
-    // console.log("Filtering with Active Interests (URL):", activeInterests);
+    console.log('filters.levelsOfStudy:', filters.levelsOfStudy);
+    console.log('filters.locations:', filters.locations);
+    console.log('filters.interests:', filters.interests);
+    console.log('filters.programFeatures:', filters.programFeatures);
 
     let filteredResults = allPrograms.filter(p => {
-        const selectedInterest = filters.interests;
+        console.log('levels filter:', filters.levelsOfStudy);
+        console.log('program levels:', p.levelsOfStudy);
+        console.log('locations filter:', filters.locations);
+        console.log('program locations:', p.locations);
+        console.log('interests filter:', filters.interests);
+        console.log('program interests:', p.interests);
+        console.log('features filter:', filters.programFeatures);
+        console.log('program features:', p.programFeatures);
 
-        /**
-         * Logic Flow:
-         * 1. If user manually selected a specific interest in the dropdown, match ONLY that.
-         * 2. If dropdown is "All" AND we have URL interests, match ANY in the activeInterests array.
-         * 3. If dropdown is "All" AND no URL interests, return true (show everything).
-         */
+        // Multi-select levelsOfStudy
+        const levelsFilter = filters.levelsOfStudy;
+        const matchesLevels =
+            levelsFilter.length === 0 ||
+            levelsFilter.some(level =>
+                p.levelsOfStudy && p.levelsOfStudy.includes(level)
+            );
+
+        // Multi-select locations
+        const locationsFilter = filters.locations;
+        const matchesLocations =
+            locationsFilter.length === 0 ||
+            locationsFilter.some(location =>
+                p.locations && p.locations.includes(location)
+            );
+
+        // Multi-select interests (with URL fallback logic)
+        const selectedInterests = filters.interests;
         let matchesInterests = false;
 
-        if (selectedInterest !== "") {
-            // Manual override: User picked one from the list
-            matchesInterests = p.interests.includes(selectedInterest);
+        if (selectedInterests.length > 0) {
+            // Manual override: match ANY of the selected interests
+            matchesInterests = selectedInterests.some(interest =>
+                p.interests && p.interests.includes(interest)
+            );
         } else if (activeInterests.length > 0) {
-            // URL fallback: Match any of the multiple interests from the quiz
-            matchesInterests = activeInterests.some(interest => p.interests.includes(interest));
+            // URL fallback: match ANY in activeInterests
+            matchesInterests = activeInterests.some(interest =>
+                p.interests && p.interests.includes(interest)
+            );
         } else {
-            // Default: No filters active
+            // No interests filter active
             matchesInterests = true;
         }
 
-        return (filters.levelsOfStudy === "" || p.levelsOfStudy.includes(filters.levelsOfStudy)) &&
-            (filters.locations === "" || p.locations.includes(filters.locations)) &&
-            matchesInterests &&
-            (filters.programFeatures === "" || p.programFeatures.includes(filters.programFeatures));
+        // Multi-select program features
+        const featuresFilter = filters.programFeatures;
+        const matchesFeatures =
+            featuresFilter.length === 0 ||
+            featuresFilter.some(feature =>
+                p.programFeatures && p.programFeatures.includes(feature)
+            );
+
+        return matchesLevels && matchesLocations && matchesInterests && matchesFeatures;
     });
+
+    console.log('filteredResults count:', filteredResults.length);
 
     // Handle Search vs. Browse
     if (query.length > 1) {
-        // Use Fuse.js on the filtered subset for relevance-based search
         const fuse = new Fuse(filteredResults, fuseOptions);
         const searchResults = fuse.search(query);
         renderPrograms(searchResults.map(result => result.item), true);
     } else {
-        // No search query: Sort alphabetically for browsing
         const sortedResults = sortProgramsAlphabetically(filteredResults);
         renderPrograms(sortedResults, false);
     }
