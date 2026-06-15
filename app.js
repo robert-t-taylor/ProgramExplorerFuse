@@ -93,13 +93,16 @@ function checkURLParameters() {
 
     if (activeInterests.length > 0) {
         if (interestDropdown) {
-            // Only show a value in the dropdown if exactly one interest is active
-            interestDropdown.value = (activeInterests.length === 1) ? activeInterests[0] : "";
+            interestDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = activeInterests.includes(cb.value);
+            });
         }
     } else {
         // Clear state if no parameters are present (important for 'Back' button)
         activeInterests = [];
-        if (interestDropdown) interestDropdown.value = "";
+        if (interestDropdown) {
+            interestDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
     }
 }
 
@@ -177,23 +180,32 @@ function populateDropdowns(data) {
     }
 
     Object.keys(sets).forEach(key => {
-        const select = document.getElementById(`filter-${key}`);
-        if (select) {
+        const list = document.getElementById(`filter-${key}`);
+        if (list) {
             Array.from(sets[key].entries())
                 .sort((a, b) => a[1].localeCompare(b[1]))
                 .forEach(([val, label]) => {
-                    const opt = document.createElement('option');
-                    opt.value = val;
-                    
-                    // Force formatter for locations, use label for interests
-                    const displayLabel = (key === 'interests') 
+                    const displayLabel = (key === 'interests')
                         ? (label || formatOptionLabel(val))
                         : formatOptionLabel(val);
-                        
-                    // Handle Co-Op one-off condition
-                    opt.textContent = decodeHtmlEntities(displayLabel).replace("Co Op", "Co-Op");
-                
-                    select.appendChild(opt);
+                    const text = decodeHtmlEntities(displayLabel).replace("Co Op", "Co-Op");
+                    const id = `filter-${key}-${val.replace(/[^a-z0-9]/gi, '-')}`;
+
+                    const li = document.createElement('li');
+                    li.className = 'filter-dropdown__item';
+
+                    const cb = document.createElement('input');
+                    cb.type = 'checkbox';
+                    cb.value = val;
+                    cb.id = id;
+
+                    const lbl = document.createElement('label');
+                    lbl.htmlFor = id;
+                    lbl.textContent = text;
+
+                    li.appendChild(cb);
+                    li.appendChild(lbl);
+                    list.appendChild(li);
                 });
         }
     });
@@ -202,10 +214,9 @@ function populateDropdowns(data) {
 /**
  * Helper function now that multiple selections are allowed
  */
-function getSelectedValues(selectEl) {
-    return Array.from(selectEl.selectedOptions)
-        .map(opt => opt.value)
-        .filter(val => val !== "");
+function getSelectedValues(containerEl) {
+    return Array.from(containerEl.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(cb => cb.value);
 }
 
 /**
@@ -296,6 +307,8 @@ function applyFilters() {
         const sortedResults = sortProgramsAlphabetically(filteredResults);
         renderPrograms(sortedResults, false);
     }
+
+    updateFilterCounts();
 }
 
 /**
@@ -372,6 +385,16 @@ function updateCount(num) {
     }
 }
 
+function updateFilterCounts() {
+    dropdownIds.forEach(id => {
+        const container = document.getElementById(`filter-${id}`);
+        const countEl = container?.closest('.select__wrapper')?.querySelector('.select__count');
+        if (!countEl) return;
+        const n = container.querySelectorAll('input[type="checkbox"]:checked').length;
+        countEl.textContent = n > 0 ? `(${n})` : '';
+    });
+}
+
 /**
  * Event Bindings
  */
@@ -384,21 +407,18 @@ function bindEvents() {
         const el = document.getElementById(`filter-${id}`);
         if (!el) return;
 
-        el.addEventListener('change', (e) => {
+        el.addEventListener('change', () => {
             // Specialized logic for Interests to handle URL state handoff
             if (id === 'interests') {
-                const newValue = e.target.value;
-
                 // Clear the "Quiz" results as the user has now taken manual control
                 activeInterests = [];
 
+                const checkedValues = Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+
                 // Update the URL to stay in sync with the new manual selection
                 const params = new URLSearchParams(window.location.search);
-                if (newValue) {
-                    params.set('interests', newValue);
-                } else {
-                    params.delete('interests');
-                }
+                params.delete('interests');
+                checkedValues.forEach(v => params.append('interests', v));
 
                 // Push to history so the 'Back' button returns to the previous state
                 const newRelativePathQuery = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
@@ -420,7 +440,7 @@ function bindEvents() {
             searchInput.value = "";
             dropdownIds.forEach(id => {
                 const el = document.getElementById(`filter-${id}`);
-                if (el) el.value = "";
+                if (el) el.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
             });
 
             // Re-run the filter to show the full list
@@ -430,6 +450,38 @@ function bindEvents() {
             window.history.replaceState({}, document.title, window.location.pathname);
         });
     }
+
+    // 4. Select wrappers — clicking anywhere on the label/button row toggles the dropdown
+    document.querySelectorAll('.select__wrapper').forEach(wrapper => {
+        wrapper.addEventListener('click', e => {
+            e.stopPropagation();
+
+            // Let clicks inside the open dropdown through so users can pick options
+            if (e.target.closest('.filter-dropdown')) return;
+
+            const btn = wrapper.querySelector('.select__toggle');
+            const willOpen = !wrapper.classList.contains('select__wrapper--open');
+
+            document.querySelectorAll('.select__wrapper--open').forEach(w => {
+                w.classList.remove('select__wrapper--open');
+                const t = w.querySelector('.select__toggle');
+                if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
+            });
+
+            if (willOpen) {
+                wrapper.classList.add('select__wrapper--open');
+                if (btn) { btn.setAttribute('aria-expanded', 'true'); btn.textContent = '−'; }
+            }
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.select__wrapper--open').forEach(w => {
+            w.classList.remove('select__wrapper--open');
+            const t = w.querySelector('.select__toggle');
+            if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
+        });
+    });
 
     /**
      * Listen for Back/Forward navigation

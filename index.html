@@ -20,20 +20,28 @@
                 <div class="program-finder__filters">
                     <div class="filter-group">
                         <div class="select__wrapper">
-                            <label for="filter-levelsOfStudy">Level of Study</label>
-                            <select multiple id="filter-levelsOfStudy" class="filter-select"></select>
+                            <span class="select__label">Level of Study</span>
+                            <span class="select__count" aria-live="polite"></span>
+                            <button class="select__toggle" type="button" aria-expanded="false" aria-controls="filter-levelsOfStudy">+</button>
+                            <ul class="filter-dropdown" id="filter-levelsOfStudy" role="listbox" aria-multiselectable="true" aria-label="Level of Study"></ul>
                         </div>
                         <div class="select__wrapper">
-                            <label for="filter-locations">Location</label>
-                            <select multiple id="filter-locations" class="filter-select"></select>
+                            <span class="select__label">Location</span>
+                            <span class="select__count" aria-live="polite"></span>
+                            <button class="select__toggle" type="button" aria-expanded="false" aria-controls="filter-locations">+</button>
+                            <ul class="filter-dropdown" id="filter-locations" role="listbox" aria-multiselectable="true" aria-label="Location"></ul>
                         </div>
                         <div class="select__wrapper">
-                            <label for="filter-interests">Interest</label>
-                            <select multiple id="filter-interests" class="filter-select"></select>
+                            <span class="select__label">Interest</span>
+                            <span class="select__count" aria-live="polite"></span>
+                            <button class="select__toggle" type="button" aria-expanded="false" aria-controls="filter-interests">+</button>
+                            <ul class="filter-dropdown" id="filter-interests" role="listbox" aria-multiselectable="true" aria-label="Interest"></ul>
                         </div>
                         <div class="select__wrapper">
-                            <label for="filter-programFeatures">Program Features</label>
-                            <select multiple id="filter-programFeatures" class="filter-select"></select>
+                            <span class="select__label">Program Features</span>
+                            <span class="select__count" aria-live="polite"></span>
+                            <button class="select__toggle" type="button" aria-expanded="false" aria-controls="filter-programFeatures">+</button>
+                            <ul class="filter-dropdown" id="filter-programFeatures" role="listbox" aria-multiselectable="true" aria-label="Program Features"></ul>
                         </div>
                         <div class="search-container">
                         <input type="text" id="program-search" placeholder="Search programs by keyword" aria-label="Search programs" class="program-search">
