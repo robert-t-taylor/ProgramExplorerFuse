@@ -1,63 +1,156 @@
-
 [
-      {
-  "id":"4944b1320a0000eb6ec1493e4009791c",
-  "name":"test-program-5",
-  "title":"Environmental Engineering",
-  "link": "/academics/programs/undergraduate/test-program-5",
-  "disciplines":["philosophy"],
-  "credentials":["bsceng"],
-  "admissionRequirements":["arts"],
-  "levelsOfStudy":["undergraduate"],
-  "locations":["moncton"],
-  "interests":["health-wellness"],
-  "programFeatures":["accelerated","minor-option"]
-  },      {
-  "id":"dd5f7afb0a0000eb61725508f0469810",
-  "name":"test-program-4",
-  "title":"Applied Physics",
-  "link": "/academics/programs/undergraduate/test-program-4",
-  "disciplines":["philosophy"],
-  "credentials":["bsc"],
-  "admissionRequirements":["arts"],
-  "levelsOfStudy":["undergraduate"],
-  "locations":["saint-john"],
-  "interests":["health-wellness"],
-  "programFeatures":["co-op","internship"]
-  },      {
-  "id":"ba699c180a0000eb617255084d0702cd",
-  "name":"test-program-3",
-  "title":"Biology-Chemistry",
-  "link": "/academics/programs/undergraduate/test-program-3",
-  "disciplines":["philosophy"],
-  "credentials":["bphil"],
-  "admissionRequirements":["arts"],
-  "levelsOfStudy":["undergraduate"],
-  "locations":["fredericton"],
-  "interests":["health-wellness"],
-  "programFeatures":["co-op","internship"]
-  },      {
-  "id":"90f730c20a0000eb61725508daf3821c",
-  "name":"test-program-2",
-  "title":"Graduate Program Test",
-  "link": "/academics/programs/graduate/test-program-2",
-  "disciplines":["philosophy"],
-  "credentials":["ba"],
-  "admissionRequirements":["leadership"],
-  "levelsOfStudy":["graduate"],
-  "locations":[""],
-  "interests":["arts-culture-communication"],
-  "programFeatures":["accelerated"]
-  },      {
-  "id":"8c1db2260a0000eb4016c35ff63ac8a2",
-  "name":"test-program",
-  "title":"Chemical Engineering",
-  "link": "/academics/programs/undergraduate/test-program",
-  "disciplines":["leadership-studies"],
-  "credentials":["bsc"],
-  "admissionRequirements":[],
-  "levelsOfStudy":["undergraduate"],
-  "locations":["fredericton"],
-  "interests":["business-leadership"],
-  "programFeatures":["co-op","internship"]
-  }]
+  {
+    "id": "4944b1320a0000eb6ec1493e4009791c",
+    "name": "test-program-5",
+    "title": "Environmental Engineering",
+    "link": "/academics/programs/undergraduate/test-program-5",
+    "disciplines": [
+      "philosophy"
+    ],
+    "credentials": [
+      "bsceng"
+    ],
+    "admissionRequirements": [
+      "arts"
+    ],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "moncton"
+    ],
+    "interests": [
+      "health-wellness"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness"
+    ],
+    "programFeatures": [
+      "accelerated",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "dd5f7afb0a0000eb61725508f0469810",
+    "name": "test-program-4",
+    "title": "Applied Physics",
+    "link": "/academics/programs/undergraduate/test-program-4",
+    "disciplines": [
+      "philosophy"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [
+      "arts"
+    ],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "health-wellness"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "ba699c180a0000eb617255084d0702cd",
+    "name": "test-program-3",
+    "title": "Biology-Chemistry",
+    "link": "/academics/programs/undergraduate/test-program-3",
+    "disciplines": [
+      "philosophy"
+    ],
+    "credentials": [
+      "bphil"
+    ],
+    "admissionRequirements": [
+      "arts"
+    ],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "moncton"
+    ],
+    "interests": [
+      "health-wellness"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "90f730c20a0000eb61725508daf3821c",
+    "name": "test-program-2",
+    "title": "Graduate Program Test",
+    "link": "/academics/programs/graduate/test-program-2",
+    "disciplines": [
+      "philosophy"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [
+      "leadership"
+    ],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "health-sciences"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Health Sciences"
+    ],
+    "programFeatures": [
+      "accelerated"
+    ]
+  },
+  {
+    "id": "8c1db2260a0000eb4016c35ff63ac8a2",
+    "name": "test-program",
+    "title": "Chemical Engineering",
+    "link": "/academics/programs/undergraduate/test-program",
+    "disciplines": [
+      "leadership-studies"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  }
+]

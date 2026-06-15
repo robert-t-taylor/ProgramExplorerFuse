@@ -27,8 +27,8 @@ This project is a basic implementation of an online academic program explorer fo
 **How to Run**
 
 1. **Start the Application:**
-   - Run `python -m http.server`
-   - Open `http://localhost:8000/programs.html` in a web browser to view the program explorer.
+   - Run `npx http-server -p 8000 -o`
+   - Open `http://localhost:8000` in a web browser to view the program explorer.
    
 **License**
 
