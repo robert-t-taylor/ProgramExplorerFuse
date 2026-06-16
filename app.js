@@ -451,36 +451,77 @@ function bindEvents() {
         });
     }
 
-    // 4. Select wrappers — clicking anywhere on the label/button row toggles the dropdown
+    // 4. Select wrappers
+    function closeWrapper(w) {
+        w.classList.remove('select__wrapper--open');
+        const t = w.querySelector('.select__toggle');
+        if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
+    }
+
+    function openWrapper(w) {
+        document.querySelectorAll('.select__wrapper--open').forEach(other => closeWrapper(other));
+        w.classList.add('select__wrapper--open');
+        const t = w.querySelector('.select__toggle');
+        if (t) { t.setAttribute('aria-expanded', 'true'); t.textContent = '−'; }
+    }
+
     document.querySelectorAll('.select__wrapper').forEach(wrapper => {
+        const btn = wrapper.querySelector('.select__toggle');
+        const dropdown = wrapper.querySelector('.filter-dropdown');
+
+        // Toggle the dropdown on click (mouse or keyboard).
+        // e.detail === 0 means the click was keyboard-triggered (Enter or Space on
+        // the button); in that case move focus into the first list item after open.
         wrapper.addEventListener('click', e => {
             e.stopPropagation();
-
-            // Let clicks inside the open dropdown through so users can pick options
             if (e.target.closest('.filter-dropdown')) return;
 
-            const btn = wrapper.querySelector('.select__toggle');
-            const willOpen = !wrapper.classList.contains('select__wrapper--open');
+            if (wrapper.classList.contains('select__wrapper--open')) {
+                closeWrapper(wrapper);
+            } else {
+                openWrapper(wrapper);
+                if (e.detail === 0) {
+                    setTimeout(() => dropdown?.querySelector('input[type="checkbox"]')?.focus(), 0);
+                }
+            }
+        });
 
-            document.querySelectorAll('.select__wrapper--open').forEach(w => {
-                w.classList.remove('select__wrapper--open');
-                const t = w.querySelector('.select__toggle');
-                if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
-            });
+        // Keyboard navigation inside the open dropdown
+        dropdown?.addEventListener('keydown', e => {
+            const items = Array.from(dropdown.querySelectorAll('input[type="checkbox"]'));
+            const idx = items.indexOf(document.activeElement);
 
-            if (willOpen) {
-                wrapper.classList.add('select__wrapper--open');
-                if (btn) { btn.setAttribute('aria-expanded', 'true'); btn.textContent = '−'; }
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                items[Math.min(idx + 1, items.length - 1)]?.focus();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                items[Math.max(idx - 1, 0)]?.focus();
+            } else if (e.key === 'Enter') {
+                // Enter toggles the checkbox (Space already does this natively)
+                e.preventDefault();
+                const cb = document.activeElement;
+                if (cb?.type === 'checkbox') {
+                    cb.checked = !cb.checked;
+                    cb.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            } else if (e.key === 'Escape') {
+                closeWrapper(wrapper);
+                btn?.focus();
             }
         });
     });
 
-    document.addEventListener('click', () => {
+    // Close any open wrapper when focus moves outside it (handles Tab-out)
+    document.addEventListener('focusin', () => {
         document.querySelectorAll('.select__wrapper--open').forEach(w => {
-            w.classList.remove('select__wrapper--open');
-            const t = w.querySelector('.select__toggle');
-            if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
+            if (!w.contains(document.activeElement)) closeWrapper(w);
         });
+    });
+
+    // Close on outside mouse click
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.select__wrapper--open').forEach(w => closeWrapper(w));
     });
 
     /**

@@ -221,6 +221,15 @@
   width: 1rem;
 }
 
+.filter-dropdown__item input[type="checkbox"]:focus-visible {
+  outline: 2px solid #E4002B;
+  outline-offset: 2px;
+}
+
+.filter-dropdown__item:has(input[type="checkbox"]:focus-visible) {
+  background: #f0f0f0;
+}
+
 .filter-dropdown__item label {
   color: #000000;
   cursor: pointer;
@@ -243,8 +252,13 @@
   transition: text-decoration-color 0.15s ease, opacity 0.15s ease;
 }
 
-.select__wrapper:hover .select__label {
+.select__wrapper:hover .select__label,
+.select__wrapper:has(.select__toggle:focus-visible) .select__label {
   text-decoration-color: #ffffff;
+}
+
+.select__wrapper:hover .select__toggle {
+  background-color: #A3011E;
 }
 
 .select__wrapper:active .select__label {
@@ -293,8 +307,13 @@
   justify-content: center;
   line-height: 1;
   padding: 0;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
   width: 2rem;
+}
+
+.select__toggle:focus-visible {
+  background-color: #A3011E;
+  outline: none;
 }
 
 
@@ -303,13 +322,15 @@
   border: none;
   color: var(--primary-color);
   cursor: pointer;
+  flex: 1 100%;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 1.125rem;
+  text-align: left;
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
 .program-finder__header__reset:focus, .program-finder__header__reset:hover {
-  text-decoration-color: #102E40;
+  text-decoration: none;
 }
 
 .program-search {
@@ -321,9 +342,17 @@
   width: 100%;
 }
 
+.program-search::placeholder {
+  color: #000000;
+}
+
+.program-search:focus::placeholder {
+  color: #7A8490;
+}
+
 @media screen and (min-width: 57.5rem) {
   .program-search {
-    max-width: 21.875rem;
+    max-width: 100%;
   }
 }
 
@@ -336,10 +365,10 @@
   width: 100%;
 }
 
-@media screen and (min-width: 57.5rem) {
+@media screen and (min-width: 87.5rem) {
   .search-container {
-    flex: 1;
-    width: auto;
+    margin-inline-start: auto;
+    width: clamp(18rem, 27vw, 25rem);
   }
 }
 
@@ -348,6 +377,12 @@
   border: 1px solid #CDCDCD;
   border-radius:0 7px 7px 0;
   color: #ffffff;
+  cursor: pointer;
   height: 3.75rem;
   width: 3.7rem;
+  transition: all 0.2s ease;
+}
+
+.btn-search:hover {
+  background-color: #A3011E;
 }
