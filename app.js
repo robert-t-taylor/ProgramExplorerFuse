@@ -403,12 +403,11 @@ function updateFilterCounts() {
  */
 function renderActiveFilterTags() {
     const container = document.getElementById('active-filters-tags');
+    const resetBtn = document.getElementById('reset-filters');
     if (!container) return;
 
-    // Clear current tags
     container.innerHTML = '';
 
-    // Get all checked checkboxes across all dropdowns
     const allChecked = document.querySelectorAll('.filter-dropdown input[type="checkbox"]:checked');
 
     allChecked.forEach(cb => {
@@ -416,16 +415,18 @@ function renderActiveFilterTags() {
         const tag = document.createElement('button');
         tag.className = 'active-filter-tag';
         tag.innerHTML = `${labelText} <span>&times;</span>`;
-        
-        // When clicking the tag, uncheck the corresponding checkbox
+
         tag.addEventListener('click', () => {
             cb.checked = false;
-            // Manually trigger the change event to run the filter
             cb.dispatchEvent(new Event('change', { bubbles: true }));
         });
-        
+
         container.appendChild(tag);
     });
+
+    if (resetBtn) {
+        resetBtn.style.display = allChecked.length > 0 ? 'inline-block' : 'none';
+    }
 }
 
 /**

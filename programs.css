@@ -112,6 +112,10 @@
   }
 }
 
+.program-finder__no-results {
+  grid-column: span 4;
+}
+
 .program-finder__header {
   padding-block-start: 2.188rem;
 }
@@ -324,19 +328,28 @@
   height: 0;
 }
 
+#reset-filters {
+  display: none;
+}
+
 .program-finder__header__reset {
   background-color: transparent;
   border: none;
   color: var(--primary-color);
   cursor: pointer;
   flex: 0 0 auto;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-size: 1.125rem;
-  padding: 0;
+  padding-block: 1rem;
   text-align: left;
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
+
+@media screen and (min-width: 57.5rem) {
+  padding-block: 0;
+}
+
 .program-finder__header__reset:focus, .program-finder__header__reset:hover {
   text-decoration: none;
 }
@@ -393,4 +406,47 @@
 
 .btn-search:hover {
   background-color: #A3011E;
+}
+
+.active-filters-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+@media screen and (min-width: 57.5rem) {
+  .active-filters-row {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+.active-filters-tags {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.active-filter-tag {
+  background-color: #fff;
+  border: 2px solid #000000;
+  border-radius: 23px;
+  display: flex;
+  align-items: center;
+  font-family: Nunito Sans, sans-serif;
+  font-size: 0.875rem;
+  font-weight: bold;
+  gap: .5rem;
+  line-height: 1.357;
+  padding: .2rem 1.2rem;
+}
+
+.active-filter-tag span {
+  color: #E4002B;
+  font-size: 1.5rem;
+}
+
+.active-filter-tag span:hover {
+  cursor: pointer
 }
