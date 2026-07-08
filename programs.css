@@ -329,7 +329,7 @@
 }
 
 #reset-filters {
-  display: none;
+  /* display: none; */
 }
 
 .program-finder__header__reset {
