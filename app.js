@@ -74,7 +74,10 @@ async function init() {
 */
 function checkURLParameters() {
     const params = new URLSearchParams(window.location.search);
-    const interestDropdown = document.getElementById('filter-interests');
+    const levelsOfStudyDropdown   = document.getElementById('filter-levelsOfStudy');
+    const locationsDropdown       = document.getElementById('filter-locations');
+    const interestDropdown        = document.getElementById('filter-interests');
+    const programFeaturesDropdown = document.getElementById('filter-programFeatures');
 
     // Get the 'q' parameter from the URL
     const queryParam = params.get('q');
@@ -84,12 +87,52 @@ function checkURLParameters() {
         searchInput.value = decodeURIComponent(queryParam);
     }
 
+    // Use .getAll to catch multiple "levelsOfStudy=" keys from the form
+    let rawlevelsOfStudyParams = params.getAll('levelsOfStudy'); 
+
+    // Use .getAll to catch multiple "locations=" keys from the form
+    let rawLocationsParams = params.getAll('locations'); 
+
     // Use .getAll to catch multiple "interests=" keys from the form
-    let rawParams = params.getAll('interests'); 
+    let rawInterestsParams = params.getAll('interests'); 
+
+     // Use .getAll to catch multiple "programFeatures=" keys from the form
+    let rawProgramFeaturesParams = params.getAll('programFeatures');
 
     // Safety Check: If the form sent them as one string "A,B" 
     // instead of separate keys, we flatten and split them.
-    activeInterests = rawParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    activeLevelsOfStudy   = rawlevelsOfStudyParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    activeLocations       = rawLocationsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    activeInterests       = rawInterestsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    activeProgramFeatures = rawProgramFeaturesParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+
+    if (activeLevelsOfStudy.length > 0) {
+        if (levelsOfStudyDropdown) {
+            levelsOfStudyDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = activeLevelsOfStudy.includes(cb.value);
+            });
+        }
+    } else {
+        // Clear state if no parameters are present (important for 'Back' button)
+        activeLevelsOfStudy = [];
+        if (levelsOfStudyDropdown) {
+            levelsOfStudyDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+    }
+
+    if (activeLocations.length > 0) {
+        if (locationsDropdown) {
+            locationsDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = activeLocations.includes(cb.value);
+            });
+        }
+    } else {
+        // Clear state if no parameters are present (important for 'Back' button)
+        activeLocations = [];
+        if (locationsDropdown) {
+            locationsDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+    }
 
     if (activeInterests.length > 0) {
         if (interestDropdown) {
@@ -102,6 +145,20 @@ function checkURLParameters() {
         activeInterests = [];
         if (interestDropdown) {
             interestDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+    }
+
+    if (activeProgramFeatures.length > 0) {
+        if (programFeaturesDropdown) {
+            programFeaturesDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = activeProgramFeatures.includes(cb.value);
+            });
+        }
+    } else {
+        // Clear state if no parameters are present (important for 'Back' button)
+        activeProgramFeatures = [];
+        if (programFeaturesDropdown) {
+            programFeaturesDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
         }
     }
 }
