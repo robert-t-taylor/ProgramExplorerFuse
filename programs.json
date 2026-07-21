@@ -1,80 +1,5113 @@
-
- [{
-  "id":"4944b1320a0000eb6ec1493e4009791c",
-  "name":"test-program-5",
-  "title":"Environmental Engineering",
-  "link": "/academics/programs/undergraduate/test-program-5",
-  "disciplines":[],
-  "credentials":["bsceng"],
-  "admissionRequirements":[],
-  "levelsOfStudy":["undergraduate"],
-  "locations":["moncton"],
-  "interests":["health-wellness"],
-  "interestsLabels":["Health &amp; Wellness"],
-  "programFeatures":["accelerated","minor-option"]
-  },                                {
-  "id":"dd5f7afb0a0000eb61725508f0469810",
-  "name":"test-program-4",
-  "title":"Applied Physics",
-  "link": "/academics/programs/undergraduate/test-program-4",
-  "disciplines":[],
-  "credentials":["bsc"],
-  "admissionRequirements":[],
-  "levelsOfStudy":["undergraduate"],
-  "locations":["saint-john"],
-  "interests":["health-wellness"],
-  "interestsLabels":["Health &amp; Wellness"],
-  "programFeatures":["co-op","internship"]
-  },                                {
-  "id":"ba699c180a0000eb617255084d0702cd",
-  "name":"test-program-3",
-  "title":"Biology-Chemistry",
-  "link": "/academics/programs/undergraduate/test-program-3",
-  "disciplines":[],
-  "credentials":["bphil"],
-  "admissionRequirements":[],
-  "levelsOfStudy":["undergraduate"],
-  "locations":["fredericton"],
-  "interests":["health-wellness"],
-  "interestsLabels":["Health &amp; Wellness"],
-  "programFeatures":["co-op","internship"]
-  },                                                      {
-  "id":"90f730c20a0000eb61725508daf3821c",
-  "name":"test-program-2",
-  "title":"Graduate Program Test",
-  "link": "/academics/programs/graduate/test-program-2",
-  "disciplines":[],
-  "credentials":["msc"],
-  "admissionRequirements":[],
-  "levelsOfStudy":["graduate"],
-  "locations":["saint-john"],
-  "interests":["arts-culture-communication","health-sciences"],
-  "interestsLabels":["Arts, Culture &amp; Communication","Health Sciences"],
-  "programFeatures":["accelerated"]
-  },                                {
-  "id":"1acd24170a0000eb17a75f5465811e25",
-  "name":"nursing-health-sciences",
-  "title":"Nursing & Health Sciences",
-  "link": "/academics/programs/undergraduate/nursing-health-sciences",
-  "disciplines":["nursing-health-sciences"],
-  "credentials":[],
-  "admissionRequirements":[],
-  "levelsOfStudy":["undergraduate"],
-  "locations":["fredericton"],
-  "interests":["health-sciences"],
-  "interestsLabels":["Health Sciences"],
-  "programFeatures":[]
-  },                                {
-  "id":"8c1db2260a0000eb4016c35ff63ac8a2",
-  "name":"chemical-engineering-fredericton",
-  "title":"Chemical Engineering (Fredericton) | Undergraduate",
-  "link": "/academics/programs/undergraduate/chemical-engineering-fredericton",
-  "disciplines":["engineering","science"],
-  "credentials":["bsce"],
-  "admissionRequirements":[],
-  "levelsOfStudy":["undergraduate","graduate","diploma","certificate"],
-  "locations":["fredericton"],
-  "interests":["technology-engineering"],
-  "interestsLabels":["Technology &amp; Engineering"],
-  "programFeatures":["co-op","clinical-placement-practicum","internship","accelerated","online","concurrent","minor-option","minor-only"]
-  }]
+[
+  {
+    "id": "57a012650a0000eb2629e0e10fca3e31",
+    "name": "wildlife-conservation",
+    "title": "Wildlife Conservation",
+    "link": "/academics/programs/undergraduate/wildlife-conservation",
+    "disciplines": [
+      "forestry-environmental-management"
+    ],
+    "credentials": [
+      "bscem"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "579d2ff70a0000eb2629e0e17a6a8ff3",
+    "name": "water-resources-management",
+    "title": "Water Resources Management",
+    "link": "/academics/programs/undergraduate/water-resources-management",
+    "disciplines": [
+      "forestry-environmental-management"
+    ],
+    "credentials": [
+      "bscem"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "579ae2750a0000eb2629e0e17fd4ccd8",
+    "name": "wabanaki-elementary-education",
+    "title": "Wabanaki Elementary Education",
+    "link": "/academics/programs/undergraduate/wabanaki-elementary-education",
+    "disciplines": [
+      "education"
+    ],
+    "credentials": [
+      "bed"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "dd5f7afb0a0000eb61725508f0469810",
+    "name": "test-program-4",
+    "title": "Applied Physics",
+    "link": "/academics/programs/undergraduate/test-program-4",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "ba699c180a0000eb617255084d0702cd",
+    "name": "test-program-3",
+    "title": "Biology-Chemistry",
+    "link": "/academics/programs/undergraduate/test-program-3",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "49c19ecb0a0000eb2a620bdf86808d55",
+    "name": "technology-management-entrepreneurship-diploma",
+    "title": "Diploma in Technology Management & Entrepreneurship",
+    "link": "/academics/programs/diploma/technology-management-entrepreneurship-diploma",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "diploma"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "diploma"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "610503030a0000eb25f0c01a2588e6d1",
+    "name": "technology-management-entrepreneurship",
+    "title": "Technology Management and Entrepreneurship",
+    "link": "/academics/programs/graduate/technology-management-entrepreneurship",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "mtme"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership",
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "623bd00b0a0000eb25f0c01a2bd5729c",
+    "name": "systems-engineering",
+    "title": "Systems Engineering",
+    "link": "/academics/programs/graduate/systems-engineering",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "msce",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "5798cf780a0000eb2629e0e1f3ad7fc4",
+    "name": "statistics-saintjohn",
+    "title": "Statistics",
+    "link": "/academics/programs/undergraduate/statistics-saintjohn",
+    "disciplines": [
+      "science",
+      "arts"
+    ],
+    "credentials": [
+      "bsc",
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "579617d20a0000eb2629e0e13903013c",
+    "name": "statistics-fredericton",
+    "title": "Statistics",
+    "link": "/academics/programs/undergraduate/statistics-fredericton",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation",
+      "math-stats"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Math &amp; Stats"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "57937ec20a0000eb2629e0e1614a187e",
+    "name": "software-engineering-saintjohn",
+    "title": "Software Engineering",
+    "link": "/academics/programs/undergraduate/software-engineering-saintjohn",
+    "disciplines": [
+      "computer-science"
+    ],
+    "credentials": [
+      "bscswe"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "5790447b0a0000eb2629e0e1d624a632",
+    "name": "software-engineering-fredericton",
+    "title": "Software Engineering",
+    "link": "/academics/programs/undergraduate/software-engineering-fredericton",
+    "disciplines": [
+      "computer-science"
+    ],
+    "credentials": [
+      "bscswe"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "578e95c80a0000eb2629e0e1f244a886",
+    "name": "sociology-saintjohn",
+    "title": "Sociology",
+    "link": "/academics/programs/undergraduate/sociology-saintjohn",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "minor-option",
+      "internship"
+    ]
+  },
+  {
+    "id": "578c81350a0000eb2629e0e1d82bfc9d",
+    "name": "sociology-fredericton",
+    "title": "Sociology",
+    "link": "/academics/programs/undergraduate/sociology-fredericton",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "623631e70a0000eb25f0c01a4a381c1a",
+    "name": "sociology",
+    "title": "Sociology",
+    "link": "/academics/programs/graduate/sociology",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ma",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "education-society",
+      "humanities-philosophy"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Education &amp; Society",
+      "Humanities &amp; Philosophy"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "57897dbd0a0000eb2629e0e1bdc83cdb",
+    "name": "socio-cultural-studies-health",
+    "title": "Socio-Cultural Studies in Health",
+    "link": "/academics/programs/undergraduate/socio-cultural-studies-health",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "5783c41e0a0000eb2629e0e1aa6dfedd",
+    "name": "society-health",
+    "title": "Society and Health",
+    "link": "/academics/programs/undergraduate/society-health",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "bh"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "health-wellness",
+      "interdisciplinary-studies",
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Interdisciplinary Studies",
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "internship"
+    ]
+  },
+  {
+    "id": "5780c42e0a0000eb2629e0e18fe2a759",
+    "name": "social-work",
+    "title": "Social Work",
+    "link": "/academics/programs/undergraduate/social-work",
+    "disciplines": [
+      "nursing-health-sciences",
+      "arts"
+    ],
+    "credentials": [
+      "bsw"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "law-justice"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Law &amp; Justice"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "577bcdb10a0000eb2629e0e1508b927f",
+    "name": "respiratory-therapy",
+    "title": "Respiratory Therapy",
+    "link": "/academics/programs/undergraduate/respiratory-therapy",
+    "disciplines": [
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "bhs"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "57789c9e0a0000eb2629e0e134cc47af",
+    "name": "recreation-sport-studies",
+    "title": "Recreation and Sport Studies",
+    "link": "/academics/programs/undergraduate/recreation-sport-studies",
+    "disciplines": [
+      "kinesiology"
+    ],
+    "credentials": [
+      "brss"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "577597560a0000eb2629e0e15de2ab2c",
+    "name": "radiography",
+    "title": "Radiography",
+    "link": "/academics/programs/undergraduate/radiography",
+    "disciplines": [
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "bhs"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "577391c10a0000eb2629e0e12de0a82d",
+    "name": "psychology-saintjohn",
+    "title": "Psychology",
+    "link": "/academics/programs/undergraduate/psychology-saintjohn",
+    "disciplines": [
+      "arts",
+      "science"
+    ],
+    "credentials": [
+      "ba",
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op",
+      "minor-option",
+      "internship"
+    ]
+  },
+  {
+    "id": "5770a6d40a0000eb2629e0e1691ceb3c",
+    "name": "psychology-fredericton",
+    "title": "Psychology",
+    "link": "/academics/programs/undergraduate/psychology-fredericton",
+    "disciplines": [
+      "arts",
+      "science"
+    ],
+    "credentials": [
+      "ba",
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "62296b720a0000eb25f0c01ac798a5d9",
+    "name": "psychology-fredericton",
+    "title": "Psychology",
+    "link": "/academics/programs/graduate/psychology-fredericton",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy",
+      "math-stats"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy",
+      "Math &amp; Stats"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "622d88370a0000eb25f0c01a20bce859",
+    "name": "psychology",
+    "title": "Psychology",
+    "link": "/academics/programs/graduate/psychology",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ma",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "576e72a20a0000eb2629e0e150522a72",
+    "name": "politics",
+    "title": "Politics",
+    "link": "/academics/programs/undergraduate/politics",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "politics-global-studies"
+    ],
+    "interestsLabels": [
+      "Politics &amp; Global Studies"
+    ],
+    "programFeatures": [
+      "minor-option",
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "576c033a0a0000eb2629e0e10f183d3e",
+    "name": "political-science",
+    "title": "Political Science",
+    "link": "/academics/programs/undergraduate/political-science",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "politics-global-studies"
+    ],
+    "interestsLabels": [
+      "Politics &amp; Global Studies"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "6224b1770a0000eb25f0c01a2c87b791",
+    "name": "political-science",
+    "title": "Political Science",
+    "link": "/academics/programs/graduate/political-science",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ma"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "education-society",
+      "politics-global-studies"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Education &amp; Society",
+      "Politics &amp; Global Studies"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "621f19ad0a0000eb25f0c01a11b1fb46",
+    "name": "physics",
+    "title": "Physics",
+    "link": "/academics/programs/graduate/physics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "msc",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "5768d6e60a0000eb2629e0e1a53f319f",
+    "name": "physics",
+    "title": "Physics",
+    "link": "/academics/programs/undergraduate/physics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "576694910a0000eb2629e0e1e93dd5ee",
+    "name": "philosophy-saintjohn",
+    "title": "Philosophy",
+    "link": "/academics/programs/undergraduate/philosophy-saintjohn",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "humanities-philosophy"
+    ],
+    "interestsLabels": [
+      "Humanities &amp; Philosophy"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "5763b07e0a0000eb2629e0e155d19713",
+    "name": "philosophy-fredericton",
+    "title": "Philosophy",
+    "link": "/academics/programs/undergraduate/philosophy-fredericton",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "humanities-philosophy"
+    ],
+    "interestsLabels": [
+      "Humanities &amp; Philosophy"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "576029170a0000eb2629e0e1336d5cec",
+    "name": "nursing-saintjohn",
+    "title": "Nursing",
+    "link": "/academics/programs/undergraduate/nursing-saintjohn",
+    "disciplines": [
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "bn"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "57bc3fc40a0000eb2629e0e1c97b3946",
+    "name": "nursing-fredericton",
+    "title": "Nursing",
+    "link": "/academics/programs/undergraduate/nursing-fredericton",
+    "disciplines": [
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "bn"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "621a7b2a0a0000eb25f0c01a00153d84",
+    "name": "nursing",
+    "title": "Nursing",
+    "link": "/academics/programs/graduate/nursing",
+    "disciplines": [
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "mn",
+      "mn-anp",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "57589e7d0a0000eb2629e0e1973e4fbc",
+    "name": "middle-young-adult-education",
+    "title": "Middle/Young Adult Education",
+    "link": "/academics/programs/undergraduate/middle-young-adult-education",
+    "disciplines": [
+      "education"
+    ],
+    "credentials": [
+      "bed"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "5754e9080a0000eb2629e0e1592211e2",
+    "name": "medicinal-chemistry",
+    "title": "Medicinal Chemistry",
+    "link": "/academics/programs/undergraduate/medicinal-chemistry",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "574e7c0a0a0000eb2629e0e17d13afb8",
+    "name": "medical-laboratory-science",
+    "title": "Medical Laboratory Science",
+    "link": "/academics/programs/undergraduate/medical-laboratory-science",
+    "disciplines": [
+      "science",
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "bmls"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "5748ebd20a0000eb2629e0e1af99a35f",
+    "name": "media-arts-cultures",
+    "title": "Media Arts and Cultures",
+    "link": "/academics/programs/undergraduate/media-arts-cultures",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "574039200a0000eb2629e0e1fc295777",
+    "name": "mechanical-engineering-saintjohn",
+    "title": "Mechanical Engineering",
+    "link": "/academics/programs/undergraduate/mechanical-engineering-saintjohn",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "5722b9d20a0000eb2629e0e115c532b6",
+    "name": "mechanical-engineering-fredericton",
+    "title": "Mechanical Engineering",
+    "link": "/academics/programs/undergraduate/mechanical-engineering-fredericton",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "61f4d8ac0a0000eb25f0c01a45d29301",
+    "name": "mechanical-engineering",
+    "title": "Mechanical Engineering",
+    "link": "/academics/programs/graduate/mechanical-engineering",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "meng",
+      "msce",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "611576760a0000eb25f0c01af2fa83d2",
+    "name": "mba-saintjohn",
+    "title": "Master of Business Administration",
+    "link": "/academics/programs/graduate/mba-saintjohn",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "mba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "accelerated"
+    ]
+  },
+  {
+    "id": "60fb90880a0000eb25f0c01a04df0331",
+    "name": "mba-online",
+    "title": "Master of Business Administration",
+    "link": "/academics/programs/graduate/mba-online",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "mba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "online"
+    ]
+  },
+  {
+    "id": "6073b3c70a0000eb25f0c01aac3a5342",
+    "name": "mba-fredericton",
+    "title": "Master of Business Administration",
+    "link": "/academics/programs/graduate/mba-fredericton",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "mba",
+      "mba-jd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "570b03760a0000eb2629e0e16fe805bf",
+    "name": "mathematics-statistics-economics",
+    "title": "Mathematics/Statistics-Economics",
+    "link": "/academics/programs/undergraduate/mathematics-statistics-economics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "arts-culture-communication",
+      "politics-global-studies"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Arts, Culture &amp; Communication",
+      "Politics &amp; Global Studies"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "571ca1860a0000eb2629e0e19a30ae8e",
+    "name": "mathematics-statistics",
+    "title": "Mathematics-Statistics",
+    "link": "/academics/programs/undergraduate/mathematics-statistics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "math-stats"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "61ef3f5d0a0000eb25f0c01adbf3d33e",
+    "name": "mathematics-statistics",
+    "title": "Mathematics and Statistics",
+    "link": "/academics/programs/graduate/mathematics-statistics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "msc",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "570201990a0000eb2629e0e14a6672de",
+    "name": "mathematics-saintjohn",
+    "title": "Mathematics",
+    "link": "/academics/programs/undergraduate/mathematics-saintjohn",
+    "disciplines": [
+      "science",
+      "arts"
+    ],
+    "credentials": [
+      "bsc",
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "5718a5940a0000eb2629e0e16d5e6338",
+    "name": "mathematics-physics",
+    "title": "Mathematics-Physics",
+    "link": "/academics/programs/undergraduate/mathematics-physics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation",
+      "math-stats"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Math &amp; Stats"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "56fe15ce0a0000eb2629e0e15c952ea3",
+    "name": "mathematics-fredericton",
+    "title": "Mathematics",
+    "link": "/academics/programs/undergraduate/mathematics-fredericton",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "57102f590a0000eb2629e0e1f5b454d2",
+    "name": "mathematics-economics-saintjohn",
+    "title": "Mathematics-Economics",
+    "link": "/academics/programs/undergraduate/mathematics-economics-saintjohn",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "56f414d30a0000eb2629e0e10584b9ac",
+    "name": "marketing-saintjohn",
+    "title": "Marketing",
+    "link": "/academics/programs/undergraduate/marketing-saintjohn",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "56f1d5c40a0000eb2629e0e18f8149e6",
+    "name": "marketing-fredericton",
+    "title": "Marketing",
+    "link": "/academics/programs/undergraduate/marketing-fredericton",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "56ee28ac0a0000eb2629e0e1fda2079c",
+    "name": "marine-biology",
+    "title": "Marine Biology",
+    "link": "/academics/programs/undergraduate/marine-biology",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "56c394470a0000eb2629e0e111933595",
+    "name": "management-health",
+    "title": "Management in Health",
+    "link": "/academics/programs/undergraduate/management-health",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bh"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership",
+      "health-wellness",
+      "interdisciplinary-studies"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Health &amp; Wellness",
+      "Interdisciplinary Studies"
+    ],
+    "programFeatures": [
+      "internship"
+    ]
+  },
+  {
+    "id": "56b5c2bd0a0000eb2629e0e180761112",
+    "name": "logistics",
+    "title": "Logistics",
+    "link": "/academics/programs/undergraduate/logistics",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "56a689e70a0000eb2629e0e166798eba",
+    "name": "linguistics",
+    "title": "Linguistics",
+    "link": "/academics/programs/undergraduate/linguistics",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "minor-only",
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "56a1b0130a0000eb2629e0e192ac1f19",
+    "name": "leadership-studies",
+    "title": "Leadership Studies",
+    "link": "/academics/programs/undergraduate/leadership-studies",
+    "disciplines": [
+      "leadership-studies"
+    ],
+    "credentials": [
+      "bphil"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership",
+      "humanities-philosophy",
+      "interdisciplinary-studies"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Humanities &amp; Philosophy",
+      "Interdisciplinary Studies"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "569266720a0000eb2629e0e1a703d6dd",
+    "name": "law-society",
+    "title": "Law in Society",
+    "link": "/academics/programs/undergraduate/law-society",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "law-justice",
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Law &amp; Justice",
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "56806d610a0000eb2629e0e1924d9652",
+    "name": "law",
+    "title": "Law",
+    "link": "/academics/programs/undergraduate/law",
+    "disciplines": [
+      "law"
+    ],
+    "credentials": [
+      "jd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "law-justice"
+    ],
+    "interestsLabels": [
+      "Law &amp; Justice"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "564390a10a0000eb2629e0e1aa497182",
+    "name": "kinesiology",
+    "title": "Kinesiology",
+    "link": "/academics/programs/undergraduate/kinesiology",
+    "disciplines": [
+      "kinesiology"
+    ],
+    "credentials": [
+      "bsckin"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "61c2b8f80a0000eb25f0c01a97eada95",
+    "name": "kinesiology",
+    "title": "Kinesiology",
+    "link": "/academics/programs/graduate/kinesiology",
+    "disciplines": [
+      "kinesiology"
+    ],
+    "credentials": [
+      "msckin",
+      "masrs",
+      "mba-srm",
+      "mscss",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "564108280a0000eb2629e0e14a3993b9",
+    "name": "international-development-studies-saintjohn",
+    "title": "International Development Studies",
+    "link": "/academics/programs/undergraduate/international-development-studies-saintjohn",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "minor-only"
+    ]
+  },
+  {
+    "id": "563dc63a0a0000eb2629e0e1072466a5",
+    "name": "international-development-studies-fredericton",
+    "title": "International Development Studies",
+    "link": "/academics/programs/undergraduate/international-development-studies-fredericton",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Education &amp; Society"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "563ae7800a0000eb2629e0e11f81edc4",
+    "name": "international-business",
+    "title": "International Business",
+    "link": "/academics/programs/undergraduate/international-business",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership",
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "61bc9e950a0000eb25f0c01a6aac1eb2",
+    "name": "interdisciplinary-studies",
+    "title": "Interdisciplinary Studies",
+    "link": "/academics/programs/graduate/interdisciplinary-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "m-idst",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "interdisciplinary-studies",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Interdisciplinary Studies",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "5637af4a0a0000eb2629e0e104395cc2",
+    "name": "integrated-studies",
+    "title": "Integrated Studies",
+    "link": "/academics/programs/undergraduate/integrated-studies",
+    "disciplines": [
+      "leadership-studies"
+    ],
+    "credentials": [
+      "bis"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership",
+      "interdisciplinary-studies"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Interdisciplinary Studies"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "563390710a0000eb2629e0e1c0f5d7bc",
+    "name": "industrial-engineering-technology",
+    "title": "Industrial Engineering Technology",
+    "link": "/academics/programs/undergraduate/industrial-engineering-technology",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bidt"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "5630863c0a0000eb2629e0e1a8f60669",
+    "name": "human-resources-management-saintjohn",
+    "title": "Human Resources Management",
+    "link": "/academics/programs/undergraduate/human-resources-management-saintjohn",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "562d7ddb0a0000eb2629e0e1dd8709c8",
+    "name": "human-resources-management-fredericton",
+    "title": "Human Resources Management",
+    "link": "/academics/programs/undergraduate/human-resources-management-fredericton",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "562b7d720a0000eb2629e0e118ec0e27",
+    "name": "history-saintjohn",
+    "title": "History",
+    "link": "/academics/programs/undergraduate/history-saintjohn",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy"
+    ],
+    "programFeatures": [
+      "minor-option",
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "56286fcf0a0000eb2629e0e10c975103",
+    "name": "history-fredericton",
+    "title": "History",
+    "link": "/academics/programs/undergraduate/history-fredericton",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "61b832190a0000eb25f0c01a862bb760",
+    "name": "historical-studies",
+    "title": "Historical Studies",
+    "link": "/academics/programs/graduate/historical-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ma",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy",
+      "politics-global-studies"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy",
+      "Politics &amp; Global Studies"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "561faa150a0000eb2629e0e19876b623",
+    "name": "health-sciences",
+    "title": "Health Sciences",
+    "link": "/academics/programs/undergraduate/health-sciences",
+    "disciplines": [
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "561d19e80a0000eb2629e0e1fafbebfd",
+    "name": "health-research",
+    "title": "Health Research",
+    "link": "/academics/programs/undergraduate/health-research",
+    "disciplines": [
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "53a5191a0a0000eb2629e0e13e9a2e5c",
+    "name": "gerontology",
+    "title": "Gerontology",
+    "link": "/academics/programs/undergraduate/gerontology",
+    "disciplines": [
+      "science",
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation",
+      "health-wellness"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Health &amp; Wellness"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "53a0a8e80a0000eb2629e0e1e151ad8d",
+    "name": "geomatics-engineering-saintjohn",
+    "title": "Geomatics Engineering",
+    "link": "/academics/programs/undergraduate/geomatics-engineering-saintjohn",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "539e0cd60a0000eb2629e0e10516c650",
+    "name": "geomatics-engineering-fredericton",
+    "title": "Geomatics Engineering",
+    "link": "/academics/programs/undergraduate/geomatics-engineering-fredericton",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "539b815c0a0000eb2629e0e15bb6c8ed",
+    "name": "geomatics",
+    "title": "Geomatics",
+    "link": "/academics/programs/undergraduate/geomatics",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bgeom"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "technology-engineering",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "53a24f650a0000eb2629e0e1aba1a9c9",
+    "name": "geology",
+    "title": "Geology",
+    "link": "/academics/programs/undergraduate/geology",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "5398f0c50a0000eb2629e0e1295a1238",
+    "name": "geological-studies",
+    "title": "Geological Studies",
+    "link": "/academics/programs/undergraduate/geological-studies",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "5395d6ad0a0000eb2629e0e1ccc682b9",
+    "name": "geological-engineering-saintjohn",
+    "title": "Geological Engineering",
+    "link": "/academics/programs/undergraduate/geological-engineering-saintjohn",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "539316dc0a0000eb2629e0e16322a382",
+    "name": "geological-engineering-fredericton",
+    "title": "Geological Engineering",
+    "link": "/academics/programs/undergraduate/geological-engineering-fredericton",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "61b17cf30a0000eb25f0c01a4095004f",
+    "name": "geodesy-geomatics-engineering",
+    "title": "Geodesy & Geomatics Engineering",
+    "link": "/academics/programs/graduate/geodesy-geomatics-engineering",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "meng",
+      "msce",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "539029ca0a0000eb2629e0e1118545ad",
+    "name": "general-science",
+    "title": "General Science",
+    "link": "/academics/programs/undergraduate/general-science",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "538d98160a0000eb2629e0e15ce98603",
+    "name": "general-business",
+    "title": "General Business",
+    "link": "/academics/programs/undergraduate/general-business",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bam"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "5387d2f80a0000eb2629e0e160173341",
+    "name": "gender-womens-studies",
+    "title": "Gender and Women’s Studies",
+    "link": "/academics/programs/undergraduate/gender-womens-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy",
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy",
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "minor-option",
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "538aec000a0000eb2629e0e182d6bd06",
+    "name": "gender-studies",
+    "title": "Gender Studies",
+    "link": "/academics/programs/undergraduate/gender-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "education-society",
+      "humanities-philosophy"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Education &amp; Society",
+      "Humanities &amp; Philosophy"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "538201730a0000eb2629e0e1bf5cc571",
+    "name": "french-saintjohn",
+    "title": "French",
+    "link": "/academics/programs/undergraduate/french-saintjohn",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "minor-option",
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "537f16890a0000eb2629e0e1e006e0df",
+    "name": "french-fredericton",
+    "title": "French",
+    "link": "/academics/programs/undergraduate/french-fredericton",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "co-op",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "5383f93d0a0000eb2629e0e10880ff92",
+    "name": "french-communication-culture",
+    "title": "French Communication and Culture",
+    "link": "/academics/programs/undergraduate/french-communication-culture",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "61a6fbb20a0000eb25f0c01a5ba36dc2",
+    "name": "forestry-environmental-management",
+    "title": "Forestry and Environmental Management",
+    "link": "/academics/programs/graduate/forestry-environmental-management",
+    "disciplines": [
+      "forestry-environmental-management"
+    ],
+    "credentials": [
+      "mem",
+      "mf",
+      "mfe",
+      "mscem",
+      "mscf",
+      "mscfe",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "math-stats",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Math &amp; Stats",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "537c34210a0000eb2629e0e134918d20",
+    "name": "forestry",
+    "title": "Forestry",
+    "link": "/academics/programs/undergraduate/forestry",
+    "disciplines": [
+      "forestry-environmental-management"
+    ],
+    "credentials": [
+      "bscf"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "537895730a0000eb2629e0e17c15a5c3",
+    "name": "finance-saintjohn",
+    "title": "Finance",
+    "link": "/academics/programs/undergraduate/finance-saintjohn",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "537577800a0000eb2629e0e1adc68654",
+    "name": "finance-fredericton",
+    "title": "Finance",
+    "link": "/academics/programs/undergraduate/finance-fredericton",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "536f403e0a0000eb2629e0e1b8ca1f91",
+    "name": "environmental-studies",
+    "title": "Environmental Studies",
+    "link": "/academics/programs/undergraduate/environmental-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "536bff100a0000eb2629e0e1fc8f4dac",
+    "name": "environmental-stewardship",
+    "title": "Environmental Stewardship",
+    "link": "/academics/programs/undergraduate/environmental-stewardship",
+    "disciplines": [
+      "forestry-environmental-management"
+    ],
+    "credentials": [
+      "bscem"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "536862100a0000eb2629e0e1dcc7de78",
+    "name": "environmental-sciences",
+    "title": "Environmental Sciences",
+    "link": "/academics/programs/undergraduate/environmental-sciences",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "53653f120a0000eb2629e0e13b4f215e",
+    "name": "environmental-geosciences",
+    "title": "Environmental Geosciences",
+    "link": "/academics/programs/undergraduate/environmental-geosciences",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "536228820a0000eb2629e0e16b091373",
+    "name": "environmental-engineering-technology",
+    "title": "Environmental Engineering Technology",
+    "link": "/academics/programs/undergraduate/environmental-engineering-technology",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bevt"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "4944b1320a0000eb6ec1493e4009791c",
+    "name": "environmental-engineering",
+    "title": "Environmental Engineering",
+    "link": "/academics/programs/undergraduate/environmental-engineering",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "535ec0fb0a0000eb2629e0e1f661c006",
+    "name": "entrepreneurship",
+    "title": "Entrepreneurship",
+    "link": "/academics/programs/undergraduate/entrepreneurship",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "535916350a0000eb2629e0e10697ca60",
+    "name": "english-saintjohn",
+    "title": "English",
+    "link": "/academics/programs/undergraduate/english-saintjohn",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "minor-option",
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "5356b2ab0a0000eb2629e0e1b4e69ea9",
+    "name": "english-fredericton",
+    "title": "English",
+    "link": "/academics/programs/undergraduate/english-fredericton",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "615ef1e60a0000eb25f0c01aaed5472d",
+    "name": "english",
+    "title": "English",
+    "link": "/academics/programs/graduate/english",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ma",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "education-society",
+      "humanities-philosophy"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Education &amp; Society",
+      "Humanities &amp; Philosophy"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "5353a8ab0a0000eb2629e0e1b0d49998",
+    "name": "engineering-physics",
+    "title": "Engineering Physics",
+    "link": "/academics/programs/undergraduate/engineering-physics",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bscep"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "615343ec0a0000eb25f0c01a2dc72e75",
+    "name": "engineering-leadership-design-innovation",
+    "title": "Engineering Leadership in Design Innovation",
+    "link": "/academics/programs/graduate/engineering-leadership-design-innovation",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "meldi"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership",
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "497d8ebc0a0000eb2a620bdfc3787fea",
+    "name": "engineering-foundations",
+    "title": "Diploma in Engineering Foundations",
+    "link": "/academics/programs/diploma/engineering-foundations",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "diploma"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "diploma"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "53513bd90a0000eb2629e0e19fb69845",
+    "name": "electrical-engineering-saintjohn",
+    "title": "Electrical Engineering",
+    "link": "/academics/programs/undergraduate/electrical-engineering-saintjohn",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "534e0de10a0000eb2629e0e197901332",
+    "name": "electrical-engineering-fredericton",
+    "title": "Electrical Engineering",
+    "link": "/academics/programs/undergraduate/electrical-engineering-fredericton",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "614ebdc40a0000eb25f0c01a284da10a",
+    "name": "electrical-computer-engineering",
+    "title": "Electrical and Computer Engineering",
+    "link": "/academics/programs/graduate/electrical-computer-engineering",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "meng",
+      "msce",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "534a358c0a0000eb2629e0e1ec65d51b",
+    "name": "education-saintjohn",
+    "title": "Education",
+    "link": "/academics/programs/undergraduate/education-saintjohn",
+    "disciplines": [
+      "arts",
+      "education"
+    ],
+    "credentials": [
+      "ba",
+      "bed"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship",
+      "concurrent"
+    ]
+  },
+  {
+    "id": "614a6c620a0000eb25f0c01aab7ada87",
+    "name": "education",
+    "title": "Education",
+    "link": "/academics/programs/graduate/education",
+    "disciplines": [
+      "education"
+    ],
+    "credentials": [
+      "med",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Education &amp; Society"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "534413a90a0000eb2629e0e14d90d450",
+    "name": "economics-saintjohn",
+    "title": "Economics",
+    "link": "/academics/programs/undergraduate/economics-saintjohn",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "ba",
+      "baa"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "5340f3520a0000eb2629e0e152a72569",
+    "name": "economics-fredericton",
+    "title": "Economics",
+    "link": "/academics/programs/undergraduate/economics-fredericton",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba",
+      "baa",
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "534686470a0000eb2629e0e1650ae4ec",
+    "name": "economics-finance",
+    "title": "Economics and Finance",
+    "link": "/academics/programs/undergraduate/economics-finance",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "61434a1b0a0000eb25f0c01af1401144",
+    "name": "economics",
+    "title": "Economics",
+    "link": "/academics/programs/graduate/economics",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ma"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership",
+      "politics-global-studies",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Politics &amp; Global Studies",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "533da38c0a0000eb2629e0e183fc133d",
+    "name": "economic-studies",
+    "title": "Economic Studies",
+    "link": "/academics/programs/undergraduate/economic-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "53392ef40a0000eb2629e0e1c57038e3",
+    "name": "earth-sciences-physics",
+    "title": "Earth Sciences-Physics",
+    "link": "/academics/programs/undergraduate/earth-sciences-physics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "53321eaf0a0000eb2629e0e1938e01f3",
+    "name": "earth-sciences",
+    "title": "Earth Sciences",
+    "link": "/academics/programs/undergraduate/earth-sciences",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "613ec79e0a0000eb25f0c01a0aba2267",
+    "name": "earth-sciences",
+    "title": "Earth Sciences",
+    "link": "/academics/programs/graduate/earth-sciences",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "msc",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "math-stats",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Math &amp; Stats",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "52f5c4500a0000eb2629e0e1bb96445b",
+    "name": "early-years-elementary-education",
+    "title": "Early Years/Elementary Education",
+    "link": "/academics/programs/undergraduate/early-years-elementary-education",
+    "disciplines": [
+      "education"
+    ],
+    "credentials": [
+      "bed"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "52e9a0b50a0000eb2629e0e1269e4965",
+    "name": "early-childhood-education",
+    "title": "Early Childhood Education",
+    "link": "/academics/programs/undergraduate/early-childhood-education",
+    "disciplines": [
+      "education"
+    ],
+    "credentials": [
+      "bed"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "52d851670a0000eb2629e0e1ae1da8d8",
+    "name": "drama",
+    "title": "Drama",
+    "link": "/academics/programs/undergraduate/drama",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "52cfb8e10a0000eb2629e0e166d193de",
+    "name": "digital-business-design",
+    "title": "Digital Business Design",
+    "link": "/academics/programs/undergraduate/digital-business-design",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "52c617db0a0000eb2629e0e105ee399d",
+    "name": "criminology-criminal-justice",
+    "title": "Criminology and Criminal Justice",
+    "link": "/academics/programs/undergraduate/criminology-criminal-justice",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "law-justice"
+    ],
+    "interestsLabels": [
+      "Law &amp; Justice"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "52c178ab0a0000eb2629e0e127448ff8",
+    "name": "criminal-justice-studies",
+    "title": "Criminal Justice Studies",
+    "link": "/academics/programs/undergraduate/criminal-justice-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "law-justice"
+    ],
+    "interestsLabels": [
+      "Law &amp; Justice"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "52bd050f0a0000eb2629e0e1366c13f7",
+    "name": "creative-writing",
+    "title": "Creative Writing",
+    "link": "/academics/programs/undergraduate/creative-writing",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "minor-option"
+    ]
+  },
+  {
+    "id": "52b60be70a0000eb2629e0e11885228c",
+    "name": "computer-science-science",
+    "title": "Computer Science & Science",
+    "link": "/academics/programs/undergraduate/computer-science-science",
+    "disciplines": [
+      "computer-science",
+      "science"
+    ],
+    "credentials": [
+      "bcs",
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "concurrent"
+    ]
+  },
+  {
+    "id": "52ae591a0a0000eb2629e0e19ceba14a",
+    "name": "computer-science-saintjohn",
+    "title": "Computer Science",
+    "link": "/academics/programs/undergraduate/computer-science-saintjohn",
+    "disciplines": [
+      "computer-science"
+    ],
+    "credentials": [
+      "bsccs"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "concurrent",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "52a9924c0a0000eb2629e0e14e490072",
+    "name": "computer-science-fredericton",
+    "title": "Computer Science",
+    "link": "/academics/programs/undergraduate/computer-science-fredericton",
+    "disciplines": [
+      "computer-science"
+    ],
+    "credentials": [
+      "bcs"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "concurrent",
+      "minor-option"
+    ]
+  },
+  {
+    "id": "61333a0e0a0000eb25f0c01ac5eaa24d",
+    "name": "computer-science",
+    "title": "Computer Science",
+    "link": "/academics/programs/graduate/computer-science",
+    "disciplines": [
+      "computer-science"
+    ],
+    "credentials": [
+      "macsec",
+      "mcs",
+      "mcsc-phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "52a47f6f0a0000eb2629e0e1fe7348cd",
+    "name": "comparative-literature",
+    "title": "Comparative Literature",
+    "link": "/academics/programs/undergraduate/comparative-literature",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "minor-only"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "52a1346c0a0000eb2629e0e14e8f888f",
+    "name": "comparative-cultural-studies",
+    "title": "Comparative Cultural Studies",
+    "link": "/academics/programs/undergraduate/comparative-cultural-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "internship"
+    ]
+  },
+  {
+    "id": "529dce310a0000eb2629e0e198fdbb6d",
+    "name": "communication-studies",
+    "title": "Communication Studies",
+    "link": "/academics/programs/undergraduate/communication-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "internship"
+    ]
+  },
+  {
+    "id": "5299463d0a0000eb2629e0e12942d843",
+    "name": "civil-engineering-saintjohn",
+    "title": "Civil Engineering",
+    "link": "/academics/programs/undergraduate/civil-engineering-saintjohn",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsceng"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "52955af30a0000eb2629e0e140657b58",
+    "name": "civil-engineering-fredericton",
+    "title": "Civil Engineering",
+    "link": "/academics/programs/undergraduate/civil-engineering-fredericton",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsceng"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "612ca1810a0000eb25f0c01a0e03603a",
+    "name": "civil-engineering",
+    "title": "Civil Engineering",
+    "link": "/academics/programs/graduate/civil-engineering",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "meng",
+      "msce",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "5268c0150a0000eb2629e0e19425a032",
+    "name": "chemistry-saintjohn",
+    "title": "Chemistry",
+    "link": "/academics/programs/undergraduate/chemistry-saintjohn",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "minor-only"
+    ]
+  },
+  {
+    "id": "526b4db30a0000eb2629e0e1f70f6d2d",
+    "name": "chemistry-physics",
+    "title": "Chemistry-Physics",
+    "link": "/academics/programs/undergraduate/chemistry-physics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "5264dd5a0a0000eb2629e0e1a9e025f9",
+    "name": "chemistry-fredericton",
+    "title": "Chemistry",
+    "link": "/academics/programs/undergraduate/chemistry-fredericton",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "6124ed490a0000eb25f0c01ab6272d65",
+    "name": "chemistry",
+    "title": "Chemistry",
+    "link": "/academics/programs/graduate/chemistry",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "msc",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "accelerated"
+    ]
+  },
+  {
+    "id": "525eca020a0000eb2629e0e1717b6a6b",
+    "name": "chemical-engineering-saintjohn",
+    "title": "Chemical Engineering",
+    "link": "/academics/programs/undergraduate/chemical-engineering-saintjohn",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "8c1db2260a0000eb4016c35ff63ac8a2",
+    "name": "chemical-engineering-fredericton",
+    "title": "Chemical Engineering (Fredericton) | Undergraduate",
+    "link": "/academics/programs/undergraduate/chemical-engineering-fredericton",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "bsce"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "60ca82b00a0000eb25f0c01a2956df76",
+    "name": "chemical-engineering",
+    "title": "Chemical Engineering",
+    "link": "/academics/programs/graduate/chemical-engineering",
+    "disciplines": [
+      "engineering"
+    ],
+    "credentials": [
+      "meng",
+      "msce",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation",
+      "technology-engineering"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation",
+      "Technology &amp; Engineering"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "52304de40a0000eb2629e0e178396d25",
+    "name": "biomedical-sciences-health",
+    "title": "Biomedical Sciences and Health",
+    "link": "/academics/programs/undergraduate/biomedical-sciences-health",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bh"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "health-wellness",
+      "interdisciplinary-studies",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Interdisciplinary Studies",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "internship"
+    ]
+  },
+  {
+    "id": "606f32e60a0000eb25f0c01ad4fc4e87",
+    "name": "biomedical-engineering",
+    "title": "Biomedical Engineering",
+    "link": "/academics/programs/graduate/biomedical-engineering",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "msc",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "521114030a0000eb2629e0e1c7f82176",
+    "name": "biology-saintjohn",
+    "title": "Biology",
+    "link": "/academics/programs/undergraduate/biology-saintjohn",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "5d0c66300a0000eb2629e0e120ed774f",
+    "name": "biology-saintjohn",
+    "title": "Biology",
+    "link": "/academics/programs/graduate/biology-saintjohn",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "msc",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "522c35760a0000eb2629e0e11d2af870",
+    "name": "biology-psychology-saintjohn",
+    "title": "Biology-Psychology",
+    "link": "/academics/programs/undergraduate/biology-psychology-saintjohn",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "internship"
+    ]
+  },
+  {
+    "id": "5229566b0a0000eb2629e0e13307b7df",
+    "name": "biology-psychology-fredericton",
+    "title": "Biology-Psychology",
+    "link": "/academics/programs/undergraduate/biology-psychology-fredericton",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "522636dc0a0000eb2629e0e12706d27d",
+    "name": "biology-physics",
+    "title": "Biology-Physics",
+    "link": "/academics/programs/undergraduate/biology-physics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "5222b44e0a0000eb2629e0e1de74c057",
+    "name": "biology-mathematics-statistics",
+    "title": "Biology-Mathematics and Statistics",
+    "link": "/academics/programs/undergraduate/biology-mathematics-statistics",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "math-stats",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Math &amp; Stats",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "49176b510a0000eb2a620bdf3017be27",
+    "name": "biology-fredericton",
+    "title": "Biology",
+    "link": "/academics/programs/graduate/biology-fredericton",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "msc",
+      "phd"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "environment-sustainability",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "520bebcb0a0000eb2629e0e10c951112",
+    "name": "biology-fredericton",
+    "title": "Biology",
+    "link": "/academics/programs/undergraduate/biology-fredericton",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "520059c60a0000eb2629e0e1f75aa3f6",
+    "name": "arts-science-joint",
+    "title": "Arts and Science (Joint)",
+    "link": "/academics/programs/undergraduate/arts-science-joint",
+    "disciplines": [
+      "arts",
+      "science"
+    ],
+    "credentials": [
+      "bas"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "51fc743d0a0000eb2629e0e19ee0366e",
+    "name": "arts-science-concurrent",
+    "title": "Applied Coastal Ecology",
+    "link": "/academics/programs/undergraduate/arts-science-concurrent",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "environment-sustainability"
+    ],
+    "interestsLabels": [
+      "Environment &amp; Sustainability"
+    ],
+    "programFeatures": [
+      "internship"
+    ]
+  },
+  {
+    "id": "5206344d0a0000eb2629e0e1125e2ffe",
+    "name": "arts-leadership-studies",
+    "title": "Arts & Leadership Studies",
+    "link": "/academics/programs/undergraduate/arts-leadership-studies",
+    "disciplines": [
+      "leadership-studies"
+    ],
+    "credentials": [
+      "ba",
+      "bphil"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "internship",
+      "concurrent"
+    ]
+  },
+  {
+    "id": "51f840dc0a0000eb2629e0e1782f3e4f",
+    "name": "arts-computer-science",
+    "title": "Applied Arts",
+    "link": "/academics/programs/undergraduate/arts-computer-science",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "baa"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "515bc5700a0000eb2629e0e13a707b84",
+    "name": "applied-human-resources-management",
+    "title": "Certificate in Applied Human Resources Management",
+    "link": "/academics/programs/certificate/applied-human-resources-management",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "certificate"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "certificate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "48b30e030a0000eb2a620bdf96ea75be",
+    "name": "applied-health-services-research",
+    "title": "Applied Health Services Research",
+    "link": "/academics/programs/graduate/applied-health-services-research",
+    "disciplines": [
+      "nursing-health-sciences"
+    ],
+    "credentials": [
+      "mahsr"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "health-wellness",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Health &amp; Wellness",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "research-based"
+    ]
+  },
+  {
+    "id": "51f535520a0000eb2629e0e1f25983ea",
+    "name": "applied-coastal-ecology",
+    "title": "Arts & Science (Concurrent)",
+    "link": "/academics/programs/undergraduate/applied-coastal-ecology",
+    "disciplines": [
+      "arts",
+      "science"
+    ],
+    "credentials": [
+      "ba",
+      "bsc"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "co-op",
+      "concurrent"
+    ]
+  },
+  {
+    "id": "5155b47f0a0000eb2629e0e19c145c7b",
+    "name": "applied-behaviour-analysis",
+    "title": "Certificate in Applied Behaviour Analysis",
+    "link": "/academics/programs/certificate/applied-behaviour-analysis",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "certificate"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "certificate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "51c7f9580a0000eb2629e0e1adf6b192",
+    "name": "applied-arts",
+    "title": "Applied Arts",
+    "link": "/academics/programs/undergraduate/applied-arts",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "baa"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": [
+      "co-op",
+      "concurrent"
+    ]
+  },
+  {
+    "id": "51c1c1040a0000eb2629e0e134310a19",
+    "name": "anthropology",
+    "title": "Anthropology",
+    "link": "/academics/programs/undergraduate/anthropology",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "90f730c20a0000eb61725508daf3821c",
+    "name": "anthropology",
+    "title": "Anthropology",
+    "link": "/academics/programs/graduate/anthropology",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ma"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "graduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication",
+      "humanities-philosophy",
+      "science-innovation"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication",
+      "Humanities &amp; Philosophy",
+      "Science &amp; Innovation"
+    ],
+    "programFeatures": [
+      "course-based",
+      "research-based"
+    ]
+  },
+  {
+    "id": "51bc19310a0000eb2629e0e1567bd6b4",
+    "name": "ancient-world-studies",
+    "title": "Ancient World Studies",
+    "link": "/academics/programs/undergraduate/ancient-world-studies",
+    "disciplines": [
+      "arts"
+    ],
+    "credentials": [
+      "ba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "arts-culture-communication"
+    ],
+    "interestsLabels": [
+      "Arts, Culture &amp; Communication"
+    ],
+    "programFeatures": []
+  },
+  {
+    "id": "472188710a0000eb2a620bdfed8ec3f5",
+    "name": "adult-education",
+    "title": "Adult Education",
+    "link": "/academics/programs/undergraduate/adult-education",
+    "disciplines": [
+      "education"
+    ],
+    "credentials": [
+      "bed"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "clinical-placement-practicum"
+    ]
+  },
+  {
+    "id": "49e7f9ae0a0000eb2a620bdfe5f64ed9",
+    "name": "actuarial-science",
+    "title": "Certificate in Actuarial Science",
+    "link": "/academics/programs/certificate/actuarial-science",
+    "disciplines": [
+      "science"
+    ],
+    "credentials": [
+      "certificate"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "certificate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "education-society"
+    ],
+    "interestsLabels": [
+      "Education &amp; Society"
+    ],
+    "programFeatures": [
+      "preparation-for-professional-actuarial-exams"
+    ]
+  },
+  {
+    "id": "51aaaf2a0a0000eb2629e0e1e8a1eb2a",
+    "name": "accounting-saintjohn",
+    "title": "Accounting",
+    "link": "/academics/programs/undergraduate/accounting-saintjohn",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "baa",
+      "bamac"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op",
+      "internship"
+    ]
+  },
+  {
+    "id": "51a87c690a0000eb2629e0e1a6246a08",
+    "name": "accounting-fredericton",
+    "title": "Accounting",
+    "link": "/academics/programs/undergraduate/accounting-fredericton",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "bba"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "undergraduate"
+    ],
+    "locations": [
+      "fredericton"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": [
+      "co-op"
+    ]
+  },
+  {
+    "id": "51373c3c0a0000eb2629e0e1c848baae",
+    "name": "accounting-certificate",
+    "title": "Certificate in Accounting",
+    "link": "/academics/programs/certificate/accounting-certificate",
+    "disciplines": [
+      "business-management"
+    ],
+    "credentials": [
+      "certificate"
+    ],
+    "admissionRequirements": [],
+    "levelsOfStudy": [
+      "certificate"
+    ],
+    "locations": [
+      "saint-john"
+    ],
+    "interests": [
+      "business-leadership"
+    ],
+    "interestsLabels": [
+      "Business &amp; Leadership"
+    ],
+    "programFeatures": []
+  }
+]
