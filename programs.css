@@ -301,8 +301,9 @@
 .select__toggle {
   align-items: center;
   background: #E4002B;
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
   border-radius: 50%;
+  box-shadow: 0 2px 4px #00000040;
   color: #FFFFFF;
   cursor: pointer;
   display: flex;
