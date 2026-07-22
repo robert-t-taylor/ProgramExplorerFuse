@@ -334,7 +334,7 @@ function updateFilterCounts() {
 }
 
 /**
- * Renders Active Filter Tags
+ * Renders Active Filter Tags with individual item counts
  */
 function renderActiveFilterTags() {
     const container = document.getElementById('active-filters-tags');
@@ -346,10 +346,27 @@ function renderActiveFilterTags() {
 
     allChecked.forEach(cb => {
         const labelText = cb.nextElementSibling.textContent;
+        const filterCategory = cb.closest('.filter-dropdown').id.replace('filter-', '');
+        const val = cb.value;
+
+        // Calculate individual count for this specific filter item
+        const count = allPrograms.filter(p => {
+            if (filterCategory === 'levelsOfStudy') {
+                return p.levelsOfStudy && p.levelsOfStudy.includes(val);
+            } else if (filterCategory === 'locations') {
+                return p.locations && p.locations.includes(val);
+            } else if (filterCategory === 'interests') {
+                return p.interests && p.interests.includes(val);
+            } else if (filterCategory === 'programFeatures') {
+                return p.programFeatures && p.programFeatures.includes(val);
+            }
+            return false;
+        }).length;
+
         const tag = document.createElement('button');
         tag.className = 'active-filter-tag';
         tag.type = 'button';
-        tag.innerHTML = `${labelText} <span>&times;</span>`;
+        tag.innerHTML = `${labelText} (${count}) <span>&times;</span>`;
 
         tag.addEventListener('click', () => {
             cb.checked = false;
