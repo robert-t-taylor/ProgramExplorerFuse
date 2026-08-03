@@ -420,7 +420,7 @@ function renderPrograms(data, isSearching) {
                 <div class="program-cards__item__text">
                     <p class="program-cards__item__degree">${p.levelsOfStudy[0] || ''}</p>
                     <h3 class="program-cards__item__title">
-                        ${p.title} <span class="program-cards__item__title__indicator">›</span>
+                        ${p.title}
                     </h3>
                     <div class="program-cards__item__attributes">
                         <p class="program-cards__item__course__numbers">${(p.credentials || []).join(', ')}</p>
@@ -433,7 +433,7 @@ function renderPrograms(data, isSearching) {
                     <svg aria-hidden="true" height="21" width="21">
                         <use href="../../../_assets/images/svg/definitions.svg#location"></use>
                     </svg>
-                    ${primaryLoc} Campus
+                    ${primaryLoc}
                 </div>
             </a>
         `;
