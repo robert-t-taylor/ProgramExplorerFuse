@@ -70,7 +70,7 @@ async function init() {
 }
 
 /**
-* Check for parameters from the Interest Quiz row type 
+* Check for parameters from the URL and sync search and selections
 */
 function checkURLParameters() {
     const params = new URLSearchParams(window.location.search);
@@ -85,26 +85,22 @@ function checkURLParameters() {
     // If it exists, put it into the Program Finder's search box
     if (queryParam && searchInput) {
         searchInput.value = decodeURIComponent(queryParam);
+    } else if (searchInput) {
+        searchInput.value = "";
     }
 
-    // Use .getAll to catch multiple "levelsOfStudy=" keys from the form
-    let rawlevelsOfStudyParams = params.getAll('levelsOfStudy'); 
-
-    // Use .getAll to catch multiple "locations=" keys from the form
-    let rawLocationsParams = params.getAll('locations'); 
-
-    // Use .getAll to catch multiple "interests=" keys from the form
-    let rawInterestsParams = params.getAll('interests'); 
-
-     // Use .getAll to catch multiple "programFeatures=" keys from the form
+    // Use .getAll to catch multiple keys from the form/URL
+    let rawlevelsOfStudyParams   = params.getAll('levelsOfStudy'); 
+    let rawLocationsParams       = params.getAll('locations'); 
+    let rawInterestsParams       = params.getAll('interests'); 
     let rawProgramFeaturesParams = params.getAll('programFeatures');
 
     // Safety Check: If the form sent them as one string "A,B" 
     // instead of separate keys, we flatten and split them.
-    activeLevelsOfStudy   = rawlevelsOfStudyParams.flatMap(item => item.split(',')).map(decodeURIComponent);
-    activeLocations       = rawLocationsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
-    activeInterests       = rawInterestsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
-    activeProgramFeatures = rawProgramFeaturesParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    let activeLevelsOfStudy   = rawlevelsOfStudyParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    let activeLocations       = rawLocationsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    activeInterests           = rawInterestsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    let activeProgramFeatures = rawProgramFeaturesParams.flatMap(item => item.split(',')).map(decodeURIComponent);
 
     if (activeLevelsOfStudy.length > 0) {
         if (levelsOfStudyDropdown) {
@@ -113,8 +109,6 @@ function checkURLParameters() {
             });
         }
     } else {
-        // Clear state if no parameters are present (important for 'Back' button)
-        activeLevelsOfStudy = [];
         if (levelsOfStudyDropdown) {
             levelsOfStudyDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
         }
@@ -127,8 +121,6 @@ function checkURLParameters() {
             });
         }
     } else {
-        // Clear state if no parameters are present (important for 'Back' button)
-        activeLocations = [];
         if (locationsDropdown) {
             locationsDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
         }
@@ -141,7 +133,6 @@ function checkURLParameters() {
             });
         }
     } else {
-        // Clear state if no parameters are present (important for 'Back' button)
         activeInterests = [];
         if (interestDropdown) {
             interestDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
@@ -155,8 +146,6 @@ function checkURLParameters() {
             });
         }
     } else {
-        // Clear state if no parameters are present (important for 'Back' button)
-        activeProgramFeatures = [];
         if (programFeaturesDropdown) {
             programFeaturesDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
         }
@@ -301,15 +290,6 @@ function applyFilters() {
     console.log('filters.programFeatures:', filters.programFeatures);
 
     let filteredResults = allPrograms.filter(p => {
-        console.log('levels filter:', filters.levelsOfStudy);
-        console.log('program levels:', p.levelsOfStudy);
-        console.log('locations filter:', filters.locations);
-        console.log('program locations:', p.locations);
-        console.log('interests filter:', filters.interests);
-        console.log('program interests:', p.interests);
-        console.log('features filter:', filters.programFeatures);
-        console.log('program features:', p.programFeatures);
-
         // Multi-select levelsOfStudy
         const levelsFilter = filters.levelsOfStudy;
         const matchesLevels =
@@ -331,17 +311,14 @@ function applyFilters() {
         let matchesInterests = false;
 
         if (selectedInterests.length > 0) {
-            // Manual override: match ANY of the selected interests
             matchesInterests = selectedInterests.some(interest =>
                 p.interests && p.interests.includes(interest)
             );
         } else if (activeInterests.length > 0) {
-            // URL fallback: match ANY in activeInterests
             matchesInterests = activeInterests.some(interest =>
                 p.interests && p.interests.includes(interest)
             );
         } else {
-            // No interests filter active
             matchesInterests = true;
         }
 
@@ -459,7 +436,7 @@ function updateFilterCounts() {
 }
 
 /**
- * Renders the "Active Filter" tags
+ * Renders the "Active Filter" tags with individual item counts (including search query chiclet)
  */
 function renderActiveFilterTags() {
     const container = document.getElementById('active-filters-tags');
@@ -469,12 +446,58 @@ function renderActiveFilterTags() {
     container.innerHTML = '';
 
     const allChecked = document.querySelectorAll('.filter-dropdown input[type="checkbox"]:checked');
+    const queryVal = searchInput ? searchInput.value.trim() : '';
 
+    // 1. Render Search Query Chiclet if query length > 1
+    if (queryVal.length > 1) {
+        // Calculate count for search query results specifically against filtered/full list context if desired, or matching Fuse results count
+        const fuse = new Fuse(allPrograms, fuseOptions);
+        const searchCount = fuse.search(queryVal).length;
+
+        const searchTag = document.createElement('button');
+        searchTag.className = 'active-filter-tag active-filter-tag--search';
+        searchTag.type = 'button';
+        searchTag.innerHTML = `Search: "${queryVal}" (${searchCount}) <span>&times;</span>`;
+
+        searchTag.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            
+            // Remove 'q' parameter from URL
+            const params = new URLSearchParams(window.location.search);
+            params.delete('q');
+            const newPath = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+            history.pushState(null, '', newPath);
+
+            applyFilters();
+        });
+
+        container.appendChild(searchTag);
+    }
+
+    // 2. Render Checkbox Filter Chiclets
     allChecked.forEach(cb => {
         const labelText = cb.nextElementSibling.textContent;
+        const filterCategory = cb.closest('.filter-dropdown').id.replace('filter-', '');
+        const val = cb.value;
+
+        // Calculate individual count for this specific filter item
+        const count = allPrograms.filter(p => {
+            if (filterCategory === 'levelsOfStudy') {
+                return p.levelsOfStudy && p.levelsOfStudy.includes(val);
+            } else if (filterCategory === 'locations') {
+                return p.locations && p.locations.includes(val);
+            } else if (filterCategory === 'interests') {
+                return p.interests && p.interests.includes(val);
+            } else if (filterCategory === 'programFeatures') {
+                return p.programFeatures && p.programFeatures.includes(val);
+            }
+            return false;
+        }).length;
+
         const tag = document.createElement('button');
         tag.className = 'active-filter-tag';
-        tag.innerHTML = `${labelText} <span>&times;</span>`;
+        tag.type = 'button';
+        tag.innerHTML = `${labelText} (${count}) <span>&times;</span>`;
 
         tag.addEventListener('click', () => {
             cb.checked = false;
@@ -485,7 +508,7 @@ function renderActiveFilterTags() {
     });
 
     if (resetBtn) {
-        resetBtn.style.display = allChecked.length > 0 ? 'inline-block' : 'none';
+        resetBtn.style.display = (allChecked.length > 0 || queryVal.length > 0) ? 'inline-block' : 'none';
     }
 }
 
@@ -493,10 +516,26 @@ function renderActiveFilterTags() {
  * Event Bindings
  */
 function bindEvents() {
-    // 1. Search input
-    searchInput.addEventListener('input', applyFilters);
+    // 1. Search input updates URL state and filters
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const params = new URLSearchParams(window.location.search);
+            const queryVal = searchInput.value.trim();
 
-    // 2. Dropdowns (Handling specialized logic for Interests)
+            if (queryVal.length > 0) {
+                params.set('q', queryVal);
+            } else {
+                params.delete('q');
+            }
+
+            const newPath = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+            history.pushState(null, '', newPath);
+
+            applyFilters();
+        });
+    }
+
+    // 2. Dropdowns handling specialized logic for all parameters and URL handoffs
     dropdownIds.forEach(id => {
         const el = document.getElementById(`filter-${id}`);
         if (!el) return;
@@ -504,20 +543,19 @@ function bindEvents() {
         el.addEventListener('change', () => {
             // Specialized logic for Interests to handle URL state handoff
             if (id === 'interests') {
-                // Clear the "Quiz" results as the user has now taken manual control
                 activeInterests = [];
-
-                const checkedValues = Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-
-                // Update the URL to stay in sync with the new manual selection
-                const params = new URLSearchParams(window.location.search);
-                params.delete('interests');
-                checkedValues.forEach(v => params.append('interests', v));
-
-                // Push to history so the 'Back' button returns to the previous state
-                const newRelativePathQuery = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-                history.pushState(null, '', newRelativePathQuery);
             }
+
+            const checkedValues = Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+
+            // Update the URL to stay in sync with the new manual selection
+            const params = new URLSearchParams(window.location.search);
+            params.delete(id);
+            checkedValues.forEach(v => params.append(id, v));
+
+            // Push to history so the 'Back' button returns to the previous state
+            const newRelativePathQuery = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+            history.pushState(null, '', newRelativePathQuery);
 
             // Always run the filter after any dropdown change
             applyFilters();
@@ -531,7 +569,7 @@ function bindEvents() {
             activeInterests = []; 
             
             // Clear all UI inputs
-            searchInput.value = "";
+            if (searchInput) searchInput.value = "";
             dropdownIds.forEach(id => {
                 const el = document.getElementById(`filter-${id}`);
                 if (el) el.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
@@ -622,11 +660,10 @@ function bindEvents() {
      * Listen for Back/Forward navigation
      */
     window.addEventListener('popstate', () => {
-        // 1. Re-read the URL parameters to set activeInterests
+        // 1. Re-read the URL parameters to reset selections and search query
         checkURLParameters();
         
-        // 2. Sync the search input if you choose to store it in the URL (Optional)
-        // 3. Re-run the filter logic to update the UI
+        // 2. Re-run the filter logic to update the UI completely
         applyFilters();
     });
 }
