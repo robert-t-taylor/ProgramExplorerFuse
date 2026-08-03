@@ -18,11 +18,22 @@ const fuseOptions = {
     ]
 };
 
-// Global State
-let activeLevelsOfStudy = [];
-let activeLocations = [];
+/**
+ * Note: we can also weight these, if necessary, as follows:
+const fuseOptions = {
+    threshold: 0.4,
+    distance: 100,
+    keys: [
+        { name: "title", weight: 1.0 },
+        { name: "credentials", weight: 0.7 },
+        { name: "interests", weight: 0.5 },
+        { name: "admissionRequirements", weight: 0.2 } // Lower priority
+    ]
+};
+*/
+
+// global state
 let activeInterests = [];
-let activeProgramFeatures = [];
 let allPrograms = [];
 
 // DOM Elements
@@ -59,8 +70,8 @@ async function init() {
 }
 
 /**
- * Check for parameters from URL and sync checkboxes
- */
+* Check for parameters from the Interest Quiz row type 
+*/
 function checkURLParameters() {
     const params = new URLSearchParams(window.location.search);
     const levelsOfStudyDropdown   = document.getElementById('filter-levelsOfStudy');
@@ -68,43 +79,87 @@ function checkURLParameters() {
     const interestDropdown        = document.getElementById('filter-interests');
     const programFeaturesDropdown = document.getElementById('filter-programFeatures');
 
+    // Get the 'q' parameter from the URL
     const queryParam = params.get('q');
+
+    // If it exists, put it into the Program Finder's search box
     if (queryParam && searchInput) {
         searchInput.value = decodeURIComponent(queryParam);
     }
 
-    let rawLevelsParams = params.getAll('levelsOfStudy'); 
+    // Use .getAll to catch multiple "levelsOfStudy=" keys from the form
+    let rawlevelsOfStudyParams = params.getAll('levelsOfStudy'); 
+
+    // Use .getAll to catch multiple "locations=" keys from the form
     let rawLocationsParams = params.getAll('locations'); 
+
+    // Use .getAll to catch multiple "interests=" keys from the form
     let rawInterestsParams = params.getAll('interests'); 
+
+     // Use .getAll to catch multiple "programFeatures=" keys from the form
     let rawProgramFeaturesParams = params.getAll('programFeatures');
 
-    activeLevelsOfStudy   = rawLevelsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
+    // Safety Check: If the form sent them as one string "A,B" 
+    // instead of separate keys, we flatten and split them.
+    activeLevelsOfStudy   = rawlevelsOfStudyParams.flatMap(item => item.split(',')).map(decodeURIComponent);
     activeLocations       = rawLocationsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
     activeInterests       = rawInterestsParams.flatMap(item => item.split(',')).map(decodeURIComponent);
     activeProgramFeatures = rawProgramFeaturesParams.flatMap(item => item.split(',')).map(decodeURIComponent);
 
-    if (levelsOfStudyDropdown) {
-        levelsOfStudyDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-            cb.checked = activeLevelsOfStudy.includes(cb.value);
-        });
+    if (activeLevelsOfStudy.length > 0) {
+        if (levelsOfStudyDropdown) {
+            levelsOfStudyDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = activeLevelsOfStudy.includes(cb.value);
+            });
+        }
+    } else {
+        // Clear state if no parameters are present (important for 'Back' button)
+        activeLevelsOfStudy = [];
+        if (levelsOfStudyDropdown) {
+            levelsOfStudyDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
     }
 
-    if (locationsDropdown) {
-        locationsDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-            cb.checked = activeLocations.includes(cb.value);
-        });
+    if (activeLocations.length > 0) {
+        if (locationsDropdown) {
+            locationsDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = activeLocations.includes(cb.value);
+            });
+        }
+    } else {
+        // Clear state if no parameters are present (important for 'Back' button)
+        activeLocations = [];
+        if (locationsDropdown) {
+            locationsDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
     }
 
-    if (interestDropdown) {
-        interestDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-            cb.checked = activeInterests.includes(cb.value);
-        });
+    if (activeInterests.length > 0) {
+        if (interestDropdown) {
+            interestDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = activeInterests.includes(cb.value);
+            });
+        }
+    } else {
+        // Clear state if no parameters are present (important for 'Back' button)
+        activeInterests = [];
+        if (interestDropdown) {
+            interestDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
     }
 
-    if (programFeaturesDropdown) {
-        programFeaturesDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-            cb.checked = activeProgramFeatures.includes(cb.value);
-        });
+    if (activeProgramFeatures.length > 0) {
+        if (programFeaturesDropdown) {
+            programFeaturesDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = activeProgramFeatures.includes(cb.value);
+            });
+        }
+    } else {
+        // Clear state if no parameters are present (important for 'Back' button)
+        activeProgramFeatures = [];
+        if (programFeaturesDropdown) {
+            programFeaturesDropdown.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
     }
 }
 
@@ -141,8 +196,14 @@ function populateDropdowns(data) {
 
         if (Array.isArray(p.interests)) {
             p.interests.forEach((item, i) => {
-                const value = typeof item === 'object' && item !== null ? item.value : item;
-                const label = Array.isArray(p.interestsLabels) && p.interestsLabels[i] ? p.interestsLabels[i] : value;
+                const value = typeof item === 'object' && item !== null
+                    ? item.value
+                    : item;
+
+                const label = Array.isArray(p.interestsLabels) && p.interestsLabels[i]
+                    ? p.interestsLabels[i]
+                    : value;
+
                 sets.interests.set(value, label);
             });
         }
@@ -169,7 +230,10 @@ function populateDropdowns(data) {
     });
 
     function formatOptionLabel(val) {
-        return val.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        return val
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
     }
 
     Object.keys(sets).forEach(key => {
@@ -178,7 +242,9 @@ function populateDropdowns(data) {
             Array.from(sets[key].entries())
                 .sort((a, b) => a[1].localeCompare(b[1]))
                 .forEach(([val, label]) => {
-                    const displayLabel = (key === 'interests') ? (label || formatOptionLabel(val)) : formatOptionLabel(val);
+                    const displayLabel = (key === 'interests')
+                        ? (label || formatOptionLabel(val))
+                        : formatOptionLabel(val);
                     const text = decodeHtmlEntities(displayLabel)
                         .replace("Co Op", "Co-Op")
                         .replace("Course Based", "Course-Based")
@@ -206,47 +272,91 @@ function populateDropdowns(data) {
 }
 
 /**
- * Helper function for multi-select values
+ * Helper function now that multiple selections are allowed
  */
 function getSelectedValues(containerEl) {
-    return Array.from(containerEl.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+    return Array.from(containerEl.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(cb => cb.value);
 }
 
 /**
  * Filtering & Searching Logic
  */
 function applyFilters() {
-    const query = searchInput ? searchInput.value.trim() : '';
+    console.log('applyFilters called');
+    console.log('searchInput.value:', searchInput.value);
 
-    // Properly gather active values from all checkboxes across filters
+    const query = searchInput.value.trim();
+
+    // Get current values of all dropdowns (all multi-select)
     const filters = {};
     dropdownIds.forEach(id => {
         const selectEl = document.getElementById(`filter-${id}`);
-        filters[id] = selectEl ? getSelectedValues(selectEl) : [];
+        filters[id] = getSelectedValues(selectEl); // always an array
     });
 
+    console.log('filters.levelsOfStudy:', filters.levelsOfStudy);
+    console.log('filters.locations:', filters.locations);
+    console.log('filters.interests:', filters.interests);
+    console.log('filters.programFeatures:', filters.programFeatures);
+
     let filteredResults = allPrograms.filter(p => {
+        console.log('levels filter:', filters.levelsOfStudy);
+        console.log('program levels:', p.levelsOfStudy);
+        console.log('locations filter:', filters.locations);
+        console.log('program locations:', p.locations);
+        console.log('interests filter:', filters.interests);
+        console.log('program interests:', p.interests);
+        console.log('features filter:', filters.programFeatures);
+        console.log('program features:', p.programFeatures);
+
+        // Multi-select levelsOfStudy
         const levelsFilter = filters.levelsOfStudy;
-        const matchesLevels = levelsFilter.length === 0 || levelsFilter.some(level => p.levelsOfStudy && p.levelsOfStudy.includes(level));
+        const matchesLevels =
+            levelsFilter.length === 0 ||
+            levelsFilter.some(level =>
+                p.levelsOfStudy && p.levelsOfStudy.includes(level)
+            );
 
+        // Multi-select locations
         const locationsFilter = filters.locations;
-        const matchesLocations = locationsFilter.length === 0 || locationsFilter.some(location => p.locations && p.locations.includes(location));
+        const matchesLocations =
+            locationsFilter.length === 0 ||
+            locationsFilter.some(location =>
+                p.locations && p.locations.includes(location)
+            );
 
+        // Multi-select interests (with URL fallback logic)
         const selectedInterests = filters.interests;
         let matchesInterests = false;
+
         if (selectedInterests.length > 0) {
-            matchesInterests = selectedInterests.some(interest => p.interests && p.interests.includes(interest));
+            // Manual override: match ANY of the selected interests
+            matchesInterests = selectedInterests.some(interest =>
+                p.interests && p.interests.includes(interest)
+            );
         } else if (activeInterests.length > 0) {
-            matchesInterests = activeInterests.some(interest => p.interests && p.interests.includes(interest));
+            // URL fallback: match ANY in activeInterests
+            matchesInterests = activeInterests.some(interest =>
+                p.interests && p.interests.includes(interest)
+            );
         } else {
+            // No interests filter active
             matchesInterests = true;
         }
 
+        // Multi-select program features
         const featuresFilter = filters.programFeatures;
-        const matchesFeatures = featuresFilter.length === 0 || featuresFilter.some(feature => p.programFeatures && p.programFeatures.includes(feature));
+        const matchesFeatures =
+            featuresFilter.length === 0 ||
+            featuresFilter.some(feature =>
+                p.programFeatures && p.programFeatures.includes(feature)
+            );
 
         return matchesLevels && matchesLocations && matchesInterests && matchesFeatures;
     });
+
+    console.log('filteredResults count:', filteredResults.length);
 
     // Handle Search vs. Browse
     if (query.length > 1) {
@@ -259,6 +369,8 @@ function applyFilters() {
     }
 
     updateFilterCounts();
+
+    // Call the tag generator
     renderActiveFilterTags();
 }
 
@@ -266,13 +378,18 @@ function applyFilters() {
  * Sorting Helper
  */
 function sortProgramsAlphabetically(data) {
-    return [...data].sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base', numeric: true }));
+    return [...data].sort((a, b) => {
+        return a.title.localeCompare(b.title, undefined, {
+            sensitivity: 'base',
+            numeric: true
+        });
+    });
 }
 
 /**
  * Rendering Logic
  */
-function renderPrograms(data) {
+function renderPrograms(data, isSearching) {
     if (!grid) return;
 
     if (data.length === 0) {
@@ -282,20 +399,28 @@ function renderPrograms(data) {
     }
 
     grid.innerHTML = data.map(p => {
+        // Get the raw location name
         var primaryLoc = p.locations[0] || "Fredericton";
-        const locClass = (primaryLoc === "saint-john") ? "saint-john" : primaryLoc.toLowerCase().replace(/[^a-z0-9]/g, '');
 
+        // If it's "saint-john", use "stjohn" (used for background color), otherwise proceed with standard normalization
+        const locClass = (primaryLoc === "saint-john") 
+            ? "saint-john" 
+            : primaryLoc.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+        // handle issue with saint-john being hyphenated
         if (primaryLoc === "saint-john") {
-            primaryLoc = " Saint John";
+            primaryLoc = " Saint John"
         } 
-        const tagsHTML = (p.programFeatures || []).map(tag => `<span class="program-cards__item__tag">${tag}</span>`).join('');
+        const tagsHTML = (p.programFeatures || [])
+            .map(tag => `<span class="program-cards__item__tag">${tag}</span>`)
+            .join('');
 
         return `
             <a class="program-cards__item" href="${p.link || '#'}">
                 <div class="program-cards__item__text">
                     <p class="program-cards__item__degree">${p.levelsOfStudy[0] || ''}</p>
                     <h3 class="program-cards__item__title">
-                        ${p.title}
+                        ${p.title} <span class="program-cards__item__title__indicator">›</span>
                     </h3>
                     <div class="program-cards__item__attributes">
                         <p class="program-cards__item__course__numbers">${(p.credentials || []).join(', ')}</p>
@@ -334,7 +459,7 @@ function updateFilterCounts() {
 }
 
 /**
- * Renders Active Filter Tags with individual item counts
+ * Renders the "Active Filter" tags
  */
 function renderActiveFilterTags() {
     const container = document.getElementById('active-filters-tags');
@@ -342,31 +467,14 @@ function renderActiveFilterTags() {
     if (!container) return;
 
     container.innerHTML = '';
+
     const allChecked = document.querySelectorAll('.filter-dropdown input[type="checkbox"]:checked');
 
     allChecked.forEach(cb => {
         const labelText = cb.nextElementSibling.textContent;
-        const filterCategory = cb.closest('.filter-dropdown').id.replace('filter-', '');
-        const val = cb.value;
-
-        // Calculate individual count for this specific filter item
-        const count = allPrograms.filter(p => {
-            if (filterCategory === 'levelsOfStudy') {
-                return p.levelsOfStudy && p.levelsOfStudy.includes(val);
-            } else if (filterCategory === 'locations') {
-                return p.locations && p.locations.includes(val);
-            } else if (filterCategory === 'interests') {
-                return p.interests && p.interests.includes(val);
-            } else if (filterCategory === 'programFeatures') {
-                return p.programFeatures && p.programFeatures.includes(val);
-            }
-            return false;
-        }).length;
-
         const tag = document.createElement('button');
         tag.className = 'active-filter-tag';
-        tag.type = 'button';
-        tag.innerHTML = `${labelText} (${count}) <span>&times;</span>`;
+        tag.innerHTML = `${labelText} <span>&times;</span>`;
 
         tag.addEventListener('click', () => {
             cb.checked = false;
@@ -382,96 +490,97 @@ function renderActiveFilterTags() {
 }
 
 /**
- * Helper to update full URL parameters string cleanly
- */
-function updateURLState() {
-    const params = new URLSearchParams();
-
-    if (searchInput && searchInput.value.trim()) {
-        params.set('q', searchInput.value.trim());
-    }
-
-    dropdownIds.forEach(dropdownId => {
-        const dropdownEl = document.getElementById(`filter-${dropdownId}`);
-        if (!dropdownEl) return;
-        const checkedValues = Array.from(dropdownEl.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-        if (checkedValues.length > 0) {
-            params.set(dropdownId, checkedValues.join(','));
-        }
-    });
-
-    const newQuery = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-    history.pushState(null, '', newQuery);
-}
-
-/**
  * Event Bindings
  */
 function bindEvents() {
-    if (searchInput) {
-        searchInput.addEventListener('input', () => {
-            updateURLState();
-            applyFilters();
-        });
-    }
+    // 1. Search input
+    searchInput.addEventListener('input', applyFilters);
 
+    // 2. Dropdowns (Handling specialized logic for Interests)
     dropdownIds.forEach(id => {
         const el = document.getElementById(`filter-${id}`);
         if (!el) return;
 
         el.addEventListener('change', () => {
+            // Specialized logic for Interests to handle URL state handoff
             if (id === 'interests') {
+                // Clear the "Quiz" results as the user has now taken manual control
                 activeInterests = [];
+
+                const checkedValues = Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+
+                // Update the URL to stay in sync with the new manual selection
+                const params = new URLSearchParams(window.location.search);
+                params.delete('interests');
+                checkedValues.forEach(v => params.append('interests', v));
+
+                // Push to history so the 'Back' button returns to the previous state
+                const newRelativePathQuery = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+                history.pushState(null, '', newRelativePathQuery);
             }
-            updateURLState();
+
+            // Always run the filter after any dropdown change
             applyFilters();
         });
     });
 
+    // 3. Reset button
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
-            activeLevelsOfStudy = [];
-            activeLocations = [];
-            activeInterests = [];
-            activeProgramFeatures = [];
+            // Hard reset of global state
+            activeInterests = []; 
             
-            if (searchInput) searchInput.value = "";
+            // Clear all UI inputs
+            searchInput.value = "";
             dropdownIds.forEach(id => {
                 const el = document.getElementById(`filter-${id}`);
                 if (el) el.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
             });
 
+            // Re-run the filter to show the full list
             applyFilters();
+
+            // Clean the URL entirely
             window.history.replaceState({}, document.title, window.location.pathname);
         });
     }
 
-    // Select wrapper UI toggles & accessibility
+    // 4. Select wrappers
+    function closeWrapper(w) {
+        w.classList.remove('select__wrapper--open');
+        const t = w.querySelector('.select__toggle');
+        if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
+    }
+
+    function openWrapper(w) {
+        document.querySelectorAll('.select__wrapper--open').forEach(other => closeWrapper(other));
+        w.classList.add('select__wrapper--open');
+        const t = w.querySelector('.select__toggle');
+        if (t) { t.setAttribute('aria-expanded', 'true'); t.textContent = '−'; }
+    }
+
     document.querySelectorAll('.select__wrapper').forEach(wrapper => {
         const btn = wrapper.querySelector('.select__toggle');
         const dropdown = wrapper.querySelector('.filter-dropdown');
 
+        // Toggle the dropdown on click (mouse or keyboard).
+        // e.detail === 0 means the click was keyboard-triggered (Enter or Space on
+        // the button); in that case move focus into the first list item after open.
         wrapper.addEventListener('click', e => {
             e.stopPropagation();
             if (e.target.closest('.filter-dropdown')) return;
 
             if (wrapper.classList.contains('select__wrapper--open')) {
-                wrapper.classList.remove('select__wrapper--open');
-                if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.textContent = '+'; }
+                closeWrapper(wrapper);
             } else {
-                document.querySelectorAll('.select__wrapper--open').forEach(w => {
-                    w.classList.remove('select__wrapper--open');
-                    const t = w.querySelector('.select__toggle');
-                    if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
-                });
-                wrapper.classList.add('select__wrapper--open');
-                if (btn) { btn.setAttribute('aria-expanded', 'true'); btn.textContent = '−'; }
+                openWrapper(wrapper);
                 if (e.detail === 0) {
                     setTimeout(() => dropdown?.querySelector('input[type="checkbox"]')?.focus(), 0);
                 }
             }
         });
 
+        // Keyboard navigation inside the open dropdown
         dropdown?.addEventListener('keydown', e => {
             const items = Array.from(dropdown.querySelectorAll('input[type="checkbox"]'));
             const idx = items.indexOf(document.activeElement);
@@ -483,6 +592,7 @@ function bindEvents() {
                 e.preventDefault();
                 items[Math.max(idx - 1, 0)]?.focus();
             } else if (e.key === 'Enter') {
+                // Enter toggles the checkbox (Space already does this natively)
                 e.preventDefault();
                 const cb = document.activeElement;
                 if (cb?.type === 'checkbox') {
@@ -490,33 +600,33 @@ function bindEvents() {
                     cb.dispatchEvent(new Event('change', { bubbles: true }));
                 }
             } else if (e.key === 'Escape') {
-                wrapper.classList.remove('select__wrapper--open');
-                if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.textContent = '+'; }
+                closeWrapper(wrapper);
                 btn?.focus();
             }
         });
     });
 
+    // Close any open wrapper when focus moves outside it (handles Tab-out)
     document.addEventListener('focusin', () => {
         document.querySelectorAll('.select__wrapper--open').forEach(w => {
-            if (!w.contains(document.activeElement)) {
-                w.classList.remove('select__wrapper--open');
-                const t = w.querySelector('.select__toggle');
-                if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
-            }
+            if (!w.contains(document.activeElement)) closeWrapper(w);
         });
     });
 
+    // Close on outside mouse click
     document.addEventListener('click', () => {
-        document.querySelectorAll('.select__wrapper--open').forEach(w => {
-            w.classList.remove('select__wrapper--open');
-            const t = w.querySelector('.select__toggle');
-            if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
-        });
+        document.querySelectorAll('.select__wrapper--open').forEach(w => closeWrapper(w));
     });
 
+    /**
+     * Listen for Back/Forward navigation
+     */
     window.addEventListener('popstate', () => {
+        // 1. Re-read the URL parameters to set activeInterests
         checkURLParameters();
+        
+        // 2. Sync the search input if you choose to store it in the URL (Optional)
+        // 3. Re-run the filter logic to update the UI
         applyFilters();
     });
 }
