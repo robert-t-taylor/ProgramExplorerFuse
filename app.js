@@ -32,6 +32,21 @@ const fuseOptions = {
 };
 */
 
+// Automatically compute the root folder based on the environment
+const getSiteRoot = () => {
+  // If the URL contains /staging/, set the root prefix accordingly (https://web-staging.int.unb.ca/staging/)
+  if (window.location.pathname.startsWith('/staging/')) {
+    return '/staging/feeds';
+  }
+  return '/feeds'; // Production (https://unb.ca/) root
+};
+const SITE_ROOT = getSiteRoot();
+
+var IMAGE_ROOT = "";
+if (SITE_ROOT == "/staging/feeds"){
+    IMAGE_ROOT = "/staging/";
+}
+
 // global state
 let activeInterests = [];
 let allPrograms = [];
@@ -48,7 +63,7 @@ const dropdownIds = ['levelsOfStudy', 'interests', 'locations', 'programFeatures
  */
 async function init() {
     try {
-        const response = await fetch('programs.json');
+        const response = await fetch(`${SITE_ROOT}/programs.json`);
         if (!response.ok) throw new Error('Failed to fetch programs data.');
         
         allPrograms = await response.json();
@@ -408,7 +423,7 @@ function renderPrograms(data, isSearching) {
                 </div>
                 <div class="program-cards__item__location program-cards__item__location--${locClass}">
                     <svg aria-hidden="true" height="21" width="21">
-                        <use href="../../../_assets/images/svg/definitions.svg#location"></use>
+                        <use href="${IMAGE_ROOT}_assets/images/svg/definitions.svg#location"></use>
                     </svg>
                     ${primaryLoc}
                 </div>
