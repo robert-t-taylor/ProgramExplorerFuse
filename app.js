@@ -379,6 +379,14 @@ function sortProgramsAlphabetically(data) {
 }
 
 /**
+ * Link helper
+ */
+function formatLink(link) {
+    if (!link || link === '#') return '#';
+    return link.endsWith('.html') ? link : `${link}.html`;
+}
+
+/**
  * Rendering Logic
  */
 function renderPrograms(data, isSearching) {
@@ -408,7 +416,7 @@ function renderPrograms(data, isSearching) {
             .join('');
 
         return `
-            <a class="program-cards__item" href="${p.link || '#'}">
+            <a class="program-cards__item" href="${formatLink(p.link)}">
                 <div class="program-cards__item__text">
                     <p class="program-cards__item__degree">${p.levelsOfStudy[0] || ''}</p>
                     <h3 class="program-cards__item__title">
