@@ -50,13 +50,19 @@ if (SITE_ROOT == "/staging/feeds"){
 // global state
 let activeInterests = [];
 let allPrograms = [];
+let areAllFiltersEmpty = true;
 
 // DOM Elements
 const grid = document.querySelector('.program-cards__wrapper');
 const countText = document.getElementById('results-count');
+if (countText) {
+    countText.innerText = " ";
+}
+
 const searchInput = document.getElementById('program-search');
 const resetBtn = document.getElementById('reset-filters');
 const dropdownIds = ['levelsOfStudy', 'interests', 'locations', 'programFeatures'];
+
 
 /**
  * Initialization
@@ -250,9 +256,12 @@ function populateDropdowns(data) {
                         ? (label || formatOptionLabel(val))
                         : formatOptionLabel(val);
                     const text = decodeHtmlEntities(displayLabel)
-                        .replace("Co Op", "Co-Op")
-                        .replace("Course Based", "Course-Based")
-                        .replace("Research Based", "Research-Based");
+                        .replace("Co Op", "Co-op")
+                        .replace("Course Based", "Course-based")
+                        .replace("Research Based", "Research-based")
+                        .replace("Minor Only", "Minor only")
+                        .replace("Minor Option", "Minor option")
+                        .replace("Clinical Placement Practicum", "Clinical placement practicum");
                     const id = `filter-${key}-${val.replace(/[^a-z0-9]/gi, '-')}`;
 
                     const li = document.createElement('li');
@@ -287,8 +296,8 @@ function getSelectedValues(containerEl) {
  * Filtering & Searching Logic
  */
 function applyFilters() {
-    console.log('applyFilters called');
-    console.log('searchInput.value:', searchInput.value);
+    // console.log('applyFilters called');
+    // console.log('searchInput.value:', searchInput.value);
 
     const query = searchInput.value.trim();
 
@@ -299,10 +308,19 @@ function applyFilters() {
         filters[id] = getSelectedValues(selectEl); // always an array
     });
 
-    console.log('filters.levelsOfStudy:', filters.levelsOfStudy);
-    console.log('filters.locations:', filters.locations);
-    console.log('filters.interests:', filters.interests);
-    console.log('filters.programFeatures:', filters.programFeatures);
+    // console.log('filters.levelsOfStudy:', filters.levelsOfStudy);
+    // console.log('filters.locations:', filters.locations);
+    // console.log('filters.interests:', filters.interests);
+    // console.log('filters.programFeatures:', filters.programFeatures);
+
+    areAllFiltersEmpty = [
+        filters.levelsOfStudy,
+        filters.locations,
+        filters.interests,
+        filters.programFeatures
+    ].every(arr => Array.isArray(arr) && arr.length === 0);
+
+    // console.log('Are all filters empty?', areAllFiltersEmpty);
 
     let filteredResults = allPrograms.filter(p => {
         // Multi-select levelsOfStudy
@@ -348,7 +366,7 @@ function applyFilters() {
         return matchesLevels && matchesLocations && matchesInterests && matchesFeatures;
     });
 
-    console.log('filteredResults count:', filteredResults.length);
+    // console.log('filteredResults count:', filteredResults.length);
 
     // Handle Search vs. Browse
     if (query.length > 1) {
@@ -431,7 +449,7 @@ function renderPrograms(data, isSearching) {
                 </div>
                 <div class="program-cards__item__location program-cards__item__location--${locClass}">
                     <svg aria-hidden="true" height="21" width="21">
-                        <use href="${IMAGE_ROOT}_assets/images/svg/definitions.svg#location"></use>
+                        <use href="${IMAGE_ROOT}/_assets/images/svg/definitions.svg#location"></use>
                     </svg>
                     ${primaryLoc}
                 </div>
@@ -443,8 +461,16 @@ function renderPrograms(data, isSearching) {
 }
 
 function updateCount(num) {
-    if (countText) {
-        countText.innerText = `Showing ${num} program${num === 1 ? '' : 's'}`;
+    if (!countText) return;
+
+    const queryVal = searchInput ? searchInput.value.trim() : '';
+
+    // If all filters are empty and there is no search query, clear the count text
+    if (areAllFiltersEmpty && queryVal.length <= 1) {
+        countText.innerText = " ";
+    } else {
+        // Otherwise, show the filtered count
+        countText.innerText = `Filtered: ${num} program${num === 1 ? '' : 's'}`;
     }
 }
 
@@ -461,6 +487,9 @@ function updateFilterCounts() {
 /**
  * Renders the "Active Filter" tags with individual item counts (including search query chiclet)
  */
+/**
+ * Renders the "Active Filter" tags with individual item counts (including search query chiclet)
+ */
 function renderActiveFilterTags() {
     const container = document.getElementById('active-filters-tags');
     const resetBtn = document.getElementById('reset-filters');
@@ -473,7 +502,6 @@ function renderActiveFilterTags() {
 
     // 1. Render Search Query Chiclet if query length > 1
     if (queryVal.length > 1) {
-        // Calculate count for search query results specifically against filtered/full list context if desired, or matching Fuse results count
         const fuse = new Fuse(allPrograms, fuseOptions);
         const searchCount = fuse.search(queryVal).length;
 
@@ -485,7 +513,14 @@ function renderActiveFilterTags() {
         searchTag.addEventListener('click', () => {
             if (searchInput) searchInput.value = '';
             
-            // Remove 'q' parameter from URL
+            // Check if this was the absolute last filter/search active
+            const remainingChecked = document.querySelectorAll('.filter-dropdown input[type="checkbox"]:checked');
+            if (remainingChecked.length === 0 && resetBtn) {
+                resetBtn.click();
+                return;
+            }
+
+            // Otherwise, normal partial clear flow
             const params = new URLSearchParams(window.location.search);
             params.delete('q');
             const newPath = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
@@ -524,7 +559,16 @@ function renderActiveFilterTags() {
 
         tag.addEventListener('click', () => {
             cb.checked = false;
-            cb.dispatchEvent(new Event('change', { bubbles: true }));
+
+            // Check if this was the very last checked box AND there is no search query active
+            const remainingChecked = document.querySelectorAll('.filter-dropdown input[type="checkbox"]:checked');
+            const currentQuery = searchInput ? searchInput.value.trim() : '';
+
+            if (remainingChecked.length === 0 && currentQuery.length <= 1 && resetBtn) {
+                resetBtn.click(); // Fires the complete reset event behavior
+            } else {
+                cb.dispatchEvent(new Event('change', { bubbles: true }));
+            }
         });
 
         container.appendChild(tag);
@@ -600,6 +644,11 @@ function bindEvents() {
 
             // Re-run the filter to show the full list
             applyFilters();
+
+            // Clear out results
+            if (countText) {
+                countText.innerText = " ";
+            }
 
             // Clean the URL entirely
             window.history.replaceState({}, document.title, window.location.pathname);
