@@ -662,11 +662,38 @@ function bindEvents() {
         if (t) { t.setAttribute('aria-expanded', 'false'); t.textContent = '+'; }
     }
 
+    // Firefox can't be made to keep its scrollbar visible, so draw our own there.
+    const useCustomScrollbar = CSS.supports('-moz-appearance', 'none');
+
+    // Position the custom scrollbar over the right edge of its list and size/move
+    // the thumb to match the list's scroll position. Hidden when nothing scrolls.
+    function updateCustomScrollbar(list) {
+        const bar = list.nextElementSibling;
+        if (!bar?.classList.contains('filter-dropdown__scrollbar')) return;
+
+        const { scrollHeight, clientHeight, scrollTop } = list;
+        bar.hidden = scrollHeight <= clientHeight;
+        if (bar.hidden) return;
+
+        const borderRight = list.offsetWidth - list.clientWidth - list.clientLeft;
+        bar.style.top = `${list.offsetTop + list.clientTop}px`;
+        bar.style.left = `${list.offsetLeft + list.offsetWidth - borderRight - bar.offsetWidth}px`;
+        bar.style.height = `${clientHeight}px`;
+
+        const thumb = bar.firstElementChild;
+        const thumbHeight = Math.max(24, clientHeight * clientHeight / scrollHeight);
+        const thumbTop = scrollTop / (scrollHeight - clientHeight) * (clientHeight - thumbHeight);
+        thumb.style.height = `${thumbHeight}px`;
+        thumb.style.top = `${thumbTop}px`;
+    }
+
     function openWrapper(w) {
         document.querySelectorAll('.select__wrapper--open').forEach(other => closeWrapper(other));
         w.classList.add('select__wrapper--open');
         const t = w.querySelector('.select__toggle');
         if (t) { t.setAttribute('aria-expanded', 'true'); t.textContent = '−'; }
+        const list = w.querySelector('.filter-dropdown');
+        if (list && useCustomScrollbar) updateCustomScrollbar(list);
     }
 
     document.querySelectorAll('.select__wrapper').forEach(wrapper => {
@@ -678,7 +705,7 @@ function bindEvents() {
         // the button); in that case move focus into the first list item after open.
         wrapper.addEventListener('click', e => {
             e.stopPropagation();
-            if (e.target.closest('.filter-dropdown')) return;
+            if (e.target.closest('.filter-dropdown, .filter-dropdown__scrollbar')) return;
 
             if (wrapper.classList.contains('select__wrapper--open')) {
                 closeWrapper(wrapper);
@@ -689,6 +716,54 @@ function bindEvents() {
                 }
             }
         });
+
+        if (dropdown && useCustomScrollbar) {
+            const bar = document.createElement('div');
+            bar.className = 'filter-dropdown__scrollbar';
+            bar.setAttribute('aria-hidden', 'true');
+            bar.appendChild(document.createElement('div')).className = 'filter-dropdown__scrollbar-thumb';
+            dropdown.classList.add('filter-dropdown--custom-scrollbar');
+            dropdown.after(bar);
+            dropdown.addEventListener('scroll', () => updateCustomScrollbar(dropdown), { passive: true });
+
+            const thumb = bar.firstElementChild;
+
+            // Drag the thumb to scroll. preventDefault keeps focus and avoids text selection.
+            thumb.addEventListener('pointerdown', e => {
+                e.preventDefault();
+                e.stopPropagation();
+                thumb.setPointerCapture(e.pointerId);
+                const startY = e.clientY;
+                const startScrollTop = dropdown.scrollTop;
+                const ratio = (dropdown.scrollHeight - dropdown.clientHeight)
+                    / (dropdown.clientHeight - thumb.offsetHeight);
+
+                const onMove = ev => { dropdown.scrollTop = startScrollTop + (ev.clientY - startY) * ratio; };
+                const onUp = () => {
+                    thumb.removeEventListener('pointermove', onMove);
+                    thumb.removeEventListener('pointerup', onUp);
+                    thumb.removeEventListener('pointercancel', onUp);
+                };
+                thumb.addEventListener('pointermove', onMove);
+                thumb.addEventListener('pointerup', onUp);
+                thumb.addEventListener('pointercancel', onUp);
+            });
+
+            // Click the track above/below the thumb to page up/down, like a native scrollbar.
+            bar.addEventListener('pointerdown', e => {
+                e.preventDefault();
+                const direction = e.clientY < thumb.getBoundingClientRect().top ? -1 : 1;
+                dropdown.scrollBy({ top: direction * dropdown.clientHeight * 0.9, behavior: 'smooth' });
+            });
+
+            // The bar sits on top of the list, so pass wheel scrolling through to it.
+            // Firefox reports mouse wheels in lines (deltaMode 1), not pixels.
+            bar.addEventListener('wheel', e => {
+                e.preventDefault();
+                const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? dropdown.clientHeight : 1;
+                dropdown.scrollTop += e.deltaY * unit;
+            }, { passive: false });
+        }
 
         // Keyboard navigation inside the open dropdown
         dropdown?.addEventListener('keydown', e => {
